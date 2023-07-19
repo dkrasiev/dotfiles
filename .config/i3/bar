@@ -1,0 +1,9 @@
+
+bar {
+    status_command i3status
+    mode hide
+    height 32
+    colors {
+      background #242422
+    }
+}
