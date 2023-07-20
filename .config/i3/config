@@ -227,10 +227,14 @@ exec always --no-startup-id feh --bg-scale /home/dkrasiev/Pictures/background_te
 exec always --no-startup-id picom -bc
 
 default_border none
+# title
 hide_edge_borders both
+
 gaps inner 4px
-gaps outer 4px
+# gaps outer 4px
+smart_gaps on
 
 include ./theme-config
 
-bindsym $mod+Shift+x exec i3lock
+# not working (why?)
+# bindsym $mod+Shift+x exec loginctl lock-session
