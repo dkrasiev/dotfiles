@@ -17,6 +17,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 -- require("awful.hotkeys_popup.keys")
+--
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -49,10 +50,13 @@ do
 end
 -- }}}
 
+
 -- {{{ Variable definitions
+local confdir = os.getenv('HOME') .. '/.config/awesome'
+
 -- Themes define colours, icons, font and wallpapers.
 -- local theme_path = os.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(confdir .. "/theme/theme.lua")
 beautiful.get().wallpaper = "/home/dkrasiev/Pictures/wallpapers/background_telemost.jpg"
 
 -- This is used later as the default terminal and editor to run.
@@ -63,6 +67,7 @@ local launcher = "rofi -show combi"
 local editor = os.getenv("EDITOR") or "nano"
 local editor_cmd = terminal .. " -e " .. editor
 
+
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
@@ -72,6 +77,10 @@ local mod = "Mod4"
 local alt = "Mod1"
 local ctrl = "Control"
 local shift = "Shift"
+
+local tagkeys = {
+	'1', '2', '3', '4', '5', '6', '7', '8', '9'
+}
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -97,12 +106,7 @@ awful.layout.layouts = {
 -- {{{ Menu
 -- Create a launcher widget and a main menu
 local myawesomemenu = {
-	{
-		"hotkeys",
-		function()
-			hotkeys_popup.show_help(nil, awful.screen.focused())
-		end,
-	},
+	{ "hotkeys",     function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
 	{ "manual",      terminal .. " -e man awesome" },
 	{ "edit config", editor_cmd .. " " .. awesome.conffile },
 	{ "restart",     awesome.restart },
@@ -192,12 +196,13 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
+
 awful.screen.connect_for_each_screen(function(s)
 	-- Wallpaper
 	set_wallpaper(s)
 
 	-- Each screen has its own tag table.
-	awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+	awful.tag(tagkeys, s, awful.layout.layouts[1])
 
 	-- Create a promptbox for each screen
 	-- s.mypromptbox = awful.widget.prompt()
@@ -428,13 +433,15 @@ local clientkeys = gears.table.join(
 	end, { description = "(un)maximize horizontally", group = "client" })
 )
 
+
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 9 do
+for i = 1, #tagkeys do
+	local key = tagkeys[i]
 	globalkeys = gears.table.join(
 		globalkeys, -- View tag only.
-		awful.key({ mod }, "#" .. i + 9, function()
+		awful.key({ mod }, key, function()
 			local screen = awful.screen.focused()
 			local tag = screen.tags[i]
 			if tag then
@@ -442,7 +449,7 @@ for i = 1, 9 do
 			end
 		end, { description = "view tag #" .. i, group = "tag" }),
 		-- Toggle tag display.
-		awful.key({ mod, ctrl }, "#" .. i + 9, function()
+		awful.key({ mod, ctrl }, key, function()
 			local screen = awful.screen.focused()
 			local tag = screen.tags[i]
 			if tag then
@@ -450,7 +457,7 @@ for i = 1, 9 do
 			end
 		end, { description = "toggle tag #" .. i, group = "tag" }),
 		-- Move client to tag.
-		awful.key({ mod, shift }, "#" .. i + 9, function()
+		awful.key({ mod, shift }, key, function()
 			if client.focus then
 				local tag = client.focus.screen.tags[i]
 				if tag then
@@ -459,7 +466,7 @@ for i = 1, 9 do
 			end
 		end, { description = "move focused client to tag #" .. i, group = "tag" }),
 		-- Toggle tag on focused client.
-		awful.key({ mod, ctrl, shift }, "#" .. i + 9, function()
+		awful.key({ mod, ctrl, shift }, key, function()
 			if client.focus then
 				local tag = client.focus.screen.tags[i]
 				if tag then
