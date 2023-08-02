@@ -92,8 +92,8 @@ awful.layout.layouts = {
 	-- awful.layout.suit.fair,
 	-- awful.layout.suit.fair.horizontal,
 	-- awful.layout.suit.spiral,
-	awful.layout.suit.spiral.dwindle,
-	awful.layout.suit.max,
+	-- awful.layout.suit.spiral.dwindle,
+	-- awful.layout.suit.max,
 	-- awful.layout.suit.max.fullscreen,
 	awful.layout.suit.magnifier,
 	-- awful.layout.suit.corner.nw,
@@ -276,23 +276,28 @@ local resize_factor = 0.05
 -- {{{ Key bindings
 local globalkeys = gears.table.join(
 	awful.key({ mod }, "s", function()
-		hotkeys_popup.show_help()
-	end, { description = "show help", group = "awesome" }),
-	awful.key({ mod, ctrl }, "l", function()
-		awful.spawn('loginctl lock-session')
-	end, { description = "lock session", group = "awesome" }),
+			hotkeys_popup.show_help()
+		end,
+		{ description = "show help", group = "awesome" }),
+	awful.key({ mod, ctrl }, "l",
+		function()
+			awful.spawn('loginctl lock-session')
+		end,
+		{ description = "lock session", group = "awesome" }),
 	awful.key({ mod }, "Left", function()
-		awful.tag.viewprev()
-	end, { description = "view previous", group = "tag" }),
+			awful.tag.viewprev()
+		end,
+		{ description = "view previous", group = "tag" }),
 	awful.key({ mod }, "Right", function()
-		awful.tag.viewnext()
-	end, { description = "view next", group = "tag" }),
-	awful.key({ mod }, "Escape", function()
-		awful.tag.history.restore()
-	end, { description = "go back", group = "tag" }),
+			awful.tag.viewnext()
+		end,
+		{ description = "view next", group = "tag" }),
+	awful.key({ mod }, "Escape",
+		function() awful.tag.history.restore() end, { description = "go back", group = "tag" }),
 	awful.key({ mod }, "j", function()
-		awful.client.focus.byidx(1)
-	end, { description = "focus next by index", group = "client" }),
+			awful.client.focus.byidx(1)
+		end,
+		{ description = "focus next by index", group = "client" }),
 	awful.key({ mod }, "k", function()
 		awful.client.focus.byidx(-1)
 	end, { description = "focus previous by index", group = "client" }),
@@ -397,40 +402,62 @@ local globalkeys = gears.table.join(
 )
 
 local clientkeys = gears.table.join(
-	awful.key({ mod }, "f", function(c)
-		c.fullscreen = not c.fullscreen
-		c:raise()
-	end, { description = "toggle fullscreen", group = "client" }),
-	awful.key({ mod, shift }, "c", function(c)
-		c:kill()
-	end, { description = "close", group = "client" }),
-	awful.key({ mod, shift }, "f", awful.client.floating.toggle, { description = "toggle floating", group = "client" }),
-	awful.key({ mod, shift }, "Return", function(c)
-		c:swap(awful.client.getmaster())
-	end, { description = "move to master", group = "client" }),
-	awful.key({ mod }, "o", function(c)
-		c:move_to_screen()
-	end, { description = "move to screen", group = "client" }),
-	awful.key({ mod }, "t", function(c)
-		c.ontop = not c.ontop
-	end, { description = "toggle keep on top", group = "client" }),
-	awful.key({ mod }, "n", function(c)
-		-- The client currently has the input focus, so it cannot be
-		-- minimized, since minimized clients can't have the focus.
-		c.minimized = true
-	end, { description = "minimize", group = "client" }),
-	awful.key({ mod }, "m", function(c)
-		c.maximized = not c.maximized
-		c:raise()
-	end, { description = "(un)maximize", group = "client" }),
-	awful.key({ mod, ctrl }, "m", function(c)
-		c.maximized_vertical = not c.maximized_vertical
-		c:raise()
-	end, { description = "(un)maximize vertically", group = "client" }),
-	awful.key({ mod, shift }, "m", function(c)
-		c.maximized_horizontal = not c.maximized_horizontal
-		c:raise()
-	end, { description = "(un)maximize horizontally", group = "client" })
+	awful.key({ mod }, "f", 
+						function(c)
+							c.fullscreen = not c.fullscreen
+							c:raise()
+						end,
+						{ description = "toggle fullscreen", group = "client" }),
+	awful.key({ mod }, "q",
+						function(c)
+							c:kill()
+						end,
+						{ description = "close", group = "client" }),
+	awful.key({ mod, shift }, "f",
+						function()
+							awful.client.floating.toggle()
+						end,
+						{ description = "toggle floating", group = "client" }),
+	awful.key({ mod, shift }, "Return", 
+						function(c)
+							c:swap(awful.client.getmaster())
+						end,
+						{ description = "move to master", group = "client" }),
+	awful.key({ mod }, "o",
+						function(c)
+							c:move_to_screen()
+						end,
+						{ description = "move to screen", group = "client" }),
+	awful.key({ mod }, "t",
+						function(c)
+							c.ontop = not c.ontop
+						end,
+						{ description = "toggle keep on top", group = "client" }),
+	-- The client currently has the input focus, so it cannot be
+	-- minimized, since minimized clients can't have the focus.
+	awful.key({ mod }, "n",
+						function(c)
+							c.minimized = true
+						end,
+						{ description = "minimize", group = "client" }),
+	awful.key({ mod }, "m",
+						function(c)
+							c.maximized = not c.maximized
+							c:raise()
+						end,
+						{ description = "(un)maximize", group = "client" }),
+	awful.key({ mod, ctrl }, "m",
+						function(c)
+							c.maximized_vertical = not c.maximized_vertical
+							c:raise()
+						end,
+						{ description = "(un)maximize vertically", group = "client" }),
+	awful.key({ mod, shift }, "m",
+						function(c)
+							c.maximized_horizontal = not c.maximized_horizontal
+							c:raise()
+						end,
+						{ description = "(un)maximize horizontally", group = "client" })
 )
 
 
