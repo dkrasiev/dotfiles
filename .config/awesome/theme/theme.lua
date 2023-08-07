@@ -1,7 +1,7 @@
 ----------------------------
 -- dkrasiev awesome theme --
 ----------------------------
-local palette      = require(".theme.catppuccin.mocha")
+local palette      = require '.theme.catppuccin.mocha'
 
 local colors       = {
     primary       = palette.lavender.hex,
@@ -22,19 +22,20 @@ local colors       = {
     bg_darker     = palette.crust.hex,
 }
 
-local theme_assets = require("beautiful.theme_assets")
-local gfs          = require("gears.filesystem")
-local dpi          = require("beautiful.xresources").apply_dpi
--- local shape        = require("gears.shape")
+local gfs          = require 'gears.filesystem'
+local theme_assets = require 'beautiful.theme_assets'
+local dpi          = require('beautiful.xresources').apply_dpi
+local shape        = require("gears.shape")
 
-local themes_path  = gfs.get_configuration_dir() .. "theme/"
+local themes_path  = gfs.get_configuration_dir() .. 'theme/'
+local gutter       = dpi(8)
 
 local theme        = {}
 
 
 -- DEFAULT VARIABLES
-theme.font                                      = "JetBrainsMonoNerdFont 10"
-theme.wallpaper                                 = themes_path .. "background.jpg"
+theme.font                                      = 'JetBrainsMonoNerdFont 10'
+theme.wallpaper                                 = themes_path .. 'background.jpg'
 
 -- ARCCHART
 -- theme.arcchart_border_color = nil
@@ -114,9 +115,9 @@ theme.gap_single_client                         = false
 theme.hotkeys_modifiers_fg                      = colors.primary
 -- theme.hotkeys_label_bg = nil
 -- theme.hotkeys_label_fg = nil
-theme.hotkeys_font                              = "JetBrainsMonoNerdFont 12 bold"
-theme.hotkeys_description_font                  = "JetBrainsMonoNerdFont 10"
-theme.hotkeys_group_margin                      = dpi(8)
+theme.hotkeys_font                              = 'JetBrainsMonoNerdFont 12 bold'
+theme.hotkeys_description_font                  = 'JetBrainsMonoNerdFont 10'
+theme.hotkeys_group_margin                      = gutter
 
 -- ICON
 -- Define the icon theme for application icons. If not set then the icons
@@ -124,22 +125,22 @@ theme.hotkeys_group_margin                      = dpi(8)
 -- theme.icon_theme = nil
 
 -- LAYOUT
-theme.layout_cornernw                           = themes_path .. "layouts/cornernww.png"
-theme.layout_cornerne                           = themes_path .. "layouts/cornernew.png"
-theme.layout_cornersw                           = themes_path .. "layouts/cornersww.png"
-theme.layout_cornerse                           = themes_path .. "layouts/cornersew.png"
-theme.layout_fairh                              = themes_path .. "layouts/fairhw.png"
-theme.layout_fairv                              = themes_path .. "layouts/fairvw.png"
-theme.layout_floating                           = themes_path .. "layouts/floatingw.png"
-theme.layout_magnifier                          = themes_path .. "layouts/magnifierw.png"
-theme.layout_max                                = themes_path .. "layouts/maxw.png"
-theme.layout_fullscreen                         = themes_path .. "layouts/fullscreenw.png"
-theme.layout_spiral                             = themes_path .. "layouts/spiralw.png"
-theme.layout_dwindle                            = themes_path .. "layouts/dwindlew.png"
-theme.layout_tile                               = themes_path .. "layouts/tilew.png"
-theme.layout_tiletop                            = themes_path .. "layouts/tiletopw.png"
-theme.layout_tilebottom                         = themes_path .. "layouts/tilebottomw.png"
-theme.layout_tileleft                           = themes_path .. "layouts/tileleftw.png"
+theme.layout_cornernw                           = themes_path .. 'layouts/cornernww.png'
+theme.layout_cornerne                           = themes_path .. 'layouts/cornernew.png'
+theme.layout_cornersw                           = themes_path .. 'layouts/cornersww.png'
+theme.layout_cornerse                           = themes_path .. 'layouts/cornersew.png'
+theme.layout_fairh                              = themes_path .. 'layouts/fairhw.png'
+theme.layout_fairv                              = themes_path .. 'layouts/fairvw.png'
+theme.layout_floating                           = themes_path .. 'layouts/floatingw.png'
+theme.layout_magnifier                          = themes_path .. 'layouts/magnifierw.png'
+theme.layout_max                                = themes_path .. 'layouts/maxw.png'
+theme.layout_fullscreen                         = themes_path .. 'layouts/fullscreenw.png'
+theme.layout_spiral                             = themes_path .. 'layouts/spiralw.png'
+theme.layout_dwindle                            = themes_path .. 'layouts/dwindlew.png'
+theme.layout_tile                               = themes_path .. 'layouts/tilew.png'
+theme.layout_tiletop                            = themes_path .. 'layouts/tiletopw.png'
+theme.layout_tilebottom                         = themes_path .. 'layouts/tilebottomw.png'
+theme.layout_tileleft                           = themes_path .. 'layouts/tileleftw.png'
 
 -- LAYOUTLIST
 -- theme.layoutlist_fg_normal = nil
@@ -169,10 +170,10 @@ theme.layout_tileleft                           = themes_path .. "layouts/tilele
 -- theme.maximized_hide_border = nil
 
 -- MENU
--- theme.menu_submenu_icon                         = themes_path .. "submenu.png"
+theme.menu_submenu_icon                         = themes_path .. "submenu.png"
 -- theme.menu_font = nil
-theme.menu_height                               = dpi(24)
-theme.menu_width                                = dpi(128)
+theme.menu_height                               = gutter * 3
+theme.menu_width                                = gutter * 64
 -- theme.menu_border_color = nil
 -- theme.menu_border_width = nil
 -- theme.menu_fg_focus = nil
@@ -200,7 +201,7 @@ theme.menu_width                                = dpi(128)
 -- theme.notification_height = nil
 -- theme.notification_max_width = nil
 -- theme.notification_max_height = nil
--- theme.notification_icon_size                    = dpi(10)
+theme.notification_icon_size                    = gutter * 2
 
 -- PIECHART
 -- theme.piechart_border_color = nil
@@ -255,12 +256,14 @@ theme.menu_width                                = dpi(128)
 -- theme.slider_bar_color = nil
 
 -- SNAP
--- theme.snap_bg = nil
--- theme.snap_border_width = nil
--- theme.snap_shape = nil
+theme.snap_bg                                   = colors.primary
+theme.snap_border_width                         = gutter / 2
+theme.snap_shape                                = function(cr, h, w)
+    shape.rounded_rect(cr, h, w, gutter / 2)
+end
 
 -- SNAPPER
--- theme.snapper_gap = nil
+theme.snapper_gap                               = gutter
 
 -- SYSTRAY
 -- theme.systray_icon_spacing = nil
@@ -277,13 +280,11 @@ theme.menu_width                                = dpi(128)
 -- theme.taglist_bg_volatile = nil
 -- theme.taglist_fg_volatile = nil
 
-local taglist_square_size                       = dpi(4)
-theme.taglist_squares_sel                       = theme_assets.taglist_squares_sel(
-    taglist_square_size,
-    theme.fg_normal)
-theme.taglist_squares_unsel                     = theme_assets.taglist_squares_unsel(
-    taglist_square_size,
-    theme.fg_normal)
+local taglist_square_size                       = gutter / 2
+theme.taglist_squares_sel                       =
+    theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
+theme.taglist_squares_unsel                     =
+    theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
 
 -- theme.taglist_squares_sel_empty = nil
 -- theme.taglist_squares_unsel_empty = nil
@@ -354,70 +355,88 @@ theme.taglist_squares_unsel                     = theme_assets.taglist_squares_u
 -- theme.titlebar_bgimage_focus = nil
 -- theme.titlebar_floating_button_normal = nil
 -- theme.titlebar_maximized_button_normal = nil
-theme.titlebar_minimize_button_normal           = themes_path .. "titlebar/minimize_normal.png"
+theme.titlebar_minimize_button_normal           = themes_path
+    .. 'titlebar/minimize_normal.png'
 -- theme.titlebar_minimize_button_normal_hover = nil
 -- theme.titlebar_minimize_button_normal_press = nil
-theme.titlebar_close_button_normal              = themes_path .. "titlebar/close_normal.png"
+theme.titlebar_close_button_normal              = themes_path .. 'titlebar/close_normal.png'
 -- theme.titlebar_close_button_normal_hover = nil
 -- theme.titlebar_close_button_normal_press = nil
 -- theme.titlebar_ontop_button_normal = nil
 -- theme.titlebar_sticky_button_normal = nil
 -- theme.titlebar_floating_button_focus = nil
 -- theme.titlebar_maximized_button_focus = nil
-theme.titlebar_minimize_button_focus            = themes_path .. "titlebar/minimize_focus.png"
+theme.titlebar_minimize_button_focus            = themes_path
+    .. 'titlebar/minimize_focus.png'
 -- theme.titlebar_minimize_button_focus_hover = nil
 -- theme.titlebar_minimize_button_focus_press = nil
-theme.titlebar_close_button_focus               = themes_path .. "titlebar/close_focus.png"
+theme.titlebar_close_button_focus               = themes_path .. 'titlebar/close_focus.png'
 -- theme.titlebar_close_button_focus_hover = nil
 -- theme.titlebar_close_button_focus_press = nil
 -- theme.titlebar_ontop_button_focus = nil
 -- theme.titlebar_sticky_button_focus = nil
-theme.titlebar_floating_button_normal_active    = themes_path .. "titlebar/floating_normal_active.png"
+theme.titlebar_floating_button_normal_active    = themes_path
+    .. 'titlebar/floating_normal_active.png'
 -- theme.titlebar_floating_button_normal_active_hover = nil
 -- theme.titlebar_floating_button_normal_active_press = nil
-theme.titlebar_maximized_button_normal_active   = themes_path .. "titlebar/maximized_normal_active.png"
+theme.titlebar_maximized_button_normal_active   = themes_path
+    .. 'titlebar/maximized_normal_active.png'
 -- theme.titlebar_maximized_button_normal_active_hover = nil
 -- theme.titlebar_maximized_button_normal_active_press = nil
-theme.titlebar_ontop_button_normal_active       = themes_path .. "titlebar/ontop_normal_active.png"
+theme.titlebar_ontop_button_normal_active       = themes_path
+    .. 'titlebar/ontop_normal_active.png'
 -- theme.titlebar_ontop_button_normal_active_hover = nil
 -- theme.titlebar_ontop_button_normal_active_press = nil
-theme.titlebar_sticky_button_normal_active      = themes_path .. "titlebar/sticky_normal_active.png"
+theme.titlebar_sticky_button_normal_active      = themes_path
+    .. 'titlebar/sticky_normal_active.png'
 -- theme.titlebar_sticky_button_normal_active_hover = nil
 -- theme.titlebar_sticky_button_normal_active_press = nil
-theme.titlebar_floating_button_focus_active     = themes_path .. "titlebar/floating_focus_active.png"
+theme.titlebar_floating_button_focus_active     = themes_path
+    .. 'titlebar/floating_focus_active.png'
 -- theme.titlebar_floating_button_focus_active_hover = nil
 -- theme.titlebar_floating_button_focus_active_press = nil
-theme.titlebar_maximized_button_focus_active    = themes_path .. "titlebar/maximized_focus_active.png"
+theme.titlebar_maximized_button_focus_active    = themes_path
+    .. 'titlebar/maximized_focus_active.png'
 -- theme.titlebar_maximized_button_focus_active_hover = nil
 -- theme.titlebar_maximized_button_focus_active_press = nil
-theme.titlebar_ontop_button_focus_active        = themes_path .. "titlebar/ontop_focus_active.png"
+theme.titlebar_ontop_button_focus_active        = themes_path
+    .. 'titlebar/ontop_focus_active.png'
 -- theme.titlebar_ontop_button_focus_active_hover = nil
 -- theme.titlebar_ontop_button_focus_active_press = nil
-theme.titlebar_sticky_button_focus_active       = themes_path .. "titlebar/sticky_focus_active.png"
+theme.titlebar_sticky_button_focus_active       = themes_path
+    .. 'titlebar/sticky_focus_active.png'
 -- theme.titlebar_sticky_button_focus_active_hover = nil
 -- theme.titlebar_sticky_button_focus_active_press = nil
-theme.titlebar_floating_button_normal_inactive  = themes_path .. "titlebar/floating_normal_inactive.png"
+theme.titlebar_floating_button_normal_inactive  = themes_path
+    .. 'titlebar/floating_normal_inactive.png'
 -- theme.titlebar_floating_button_normal_inactive_hover = nil
 -- theme.titlebar_floating_button_normal_inactive_press = nil
-theme.titlebar_maximized_button_normal_inactive = themes_path .. "titlebar/maximized_normal_inactive.png"
+theme.titlebar_maximized_button_normal_inactive = themes_path
+    .. 'titlebar/maximized_normal_inactive.png'
 -- theme.titlebar_maximized_button_normal_inactive_hover = nil
 -- theme.titlebar_maximized_button_normal_inactive_press = nil
-theme.titlebar_ontop_button_normal_inactive     = themes_path .. "titlebar/ontop_normal_inactive.png"
+theme.titlebar_ontop_button_normal_inactive     = themes_path
+    .. 'titlebar/ontop_normal_inactive.png'
 -- theme.titlebar_ontop_button_normal_inactive_hover = nil
 -- theme.titlebar_ontop_button_normal_inactive_press = nil
-theme.titlebar_sticky_button_normal_inactive    = themes_path .. "titlebar/sticky_normal_inactive.png"
+theme.titlebar_sticky_button_normal_inactive    = themes_path
+    .. 'titlebar/sticky_normal_inactive.png'
 -- theme.titlebar_sticky_button_normal_inactive_hover = nil
 -- theme.titlebar_sticky_button_normal_inactive_press = nil
-theme.titlebar_floating_button_focus_inactive   = themes_path .. "titlebar/floating_focus_inactive.png"
+theme.titlebar_floating_button_focus_inactive   = themes_path
+    .. 'titlebar/floating_focus_inactive.png'
 -- theme.titlebar_floating_button_focus_inactive_hover = nil
 -- theme.titlebar_floating_button_focus_inactive_press = nil
-theme.titlebar_maximized_button_focus_inactive  = themes_path .. "titlebar/maximized_focus_inactive.png"
+theme.titlebar_maximized_button_focus_inactive  = themes_path
+    .. 'titlebar/maximized_focus_inactive.png'
 -- theme.titlebar_maximized_button_focus_inactive_hover = nil
 -- theme.titlebar_maximized_button_focus_inactive_press = nil
-theme.titlebar_ontop_button_focus_inactive      = themes_path .. "titlebar/ontop_focus_inactive.png"
+theme.titlebar_ontop_button_focus_inactive      = themes_path
+    .. 'titlebar/ontop_focus_inactive.png'
 -- theme.titlebar_ontop_button_focus_inactive_hover = nil
 -- theme.titlebar_ontop_button_focus_inactive_press = nil
-theme.titlebar_sticky_button_focus_inactive     = themes_path .. "titlebar/sticky_focus_inactive.png"
+theme.titlebar_sticky_button_focus_inactive     = themes_path
+    .. 'titlebar/sticky_focus_inactive.png'
 -- theme.titlebar_sticky_button_focus_inactive_hover = nil
 -- theme.titlebar_sticky_button_focus_inactive_press = nil
 
@@ -432,7 +451,7 @@ theme.titlebar_sticky_button_focus_inactive     = themes_path .. "titlebar/stick
 -- theme.tooltip_align = nil
 
 -- USELESS
-theme.useless_gap                               = dpi(4)
+theme.useless_gap                               = gutter / 2
 
 -- WIBAR
 -- theme.wibar_stretch = nil
@@ -443,7 +462,7 @@ theme.useless_gap                               = dpi(4)
 -- theme.wibar_opacity = nil
 -- theme.wibar_type = nil
 -- theme.wibar_width = nil
-theme.wibar_height                              = dpi(24)
+theme.wibar_height                              = gutter * 3
 -- theme.wibar_bg = nil
 -- theme.wibar_bgimage = nil
 -- theme.wibar_fg = nil
@@ -454,5 +473,15 @@ theme.wibar_height                              = dpi(24)
 --     theme.menu_height,
 --     theme.bg_focus,
 --     theme.fg_focus)
+
+theme_assets.recolor_layout(theme, colors.primary)
+
+theme_assets.recolor_titlebar(theme, colors.primary, 'normal')
+theme_assets.recolor_titlebar(theme, colors.primary, 'normal', 'hover')
+theme_assets.recolor_titlebar(theme, colors.primary, 'normal', 'press')
+
+theme_assets.recolor_titlebar(theme, colors.bg, 'focus')
+theme_assets.recolor_titlebar(theme, colors.bg, 'focus', 'hover')
+theme_assets.recolor_titlebar(theme, colors.bg, 'focus', 'press')
 
 return theme

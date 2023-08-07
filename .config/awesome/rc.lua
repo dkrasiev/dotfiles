@@ -5,11 +5,11 @@ pcall(require, 'luarocks.loader')
 local awful = require 'awful'
 local beautiful = require 'beautiful'
 local gears = require 'gears'
-local gfs = require 'gears.filesystem'
 local hotkeys_popup = require 'awful.hotkeys_popup'
 local naughty = require 'naughty'
 local wibox = require 'wibox'
 require 'awful.autofocus'
+-- local gfs = require 'gears.filesystem'
 -- local menubar = require("menubar")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -47,15 +47,15 @@ end
 -- }}}
 
 -- {{{ Variable definitions
-local confdir = gfs.get_configuration_dir()
-beautiful.init(confdir .. 'theme/theme.lua')
+local theme = require 'theme.theme'
+beautiful.init(theme)
 
 local terminal = 'kitty'
 local filemanager = 'dolphin'
 local browser = 'google-chrome-stable'
 local launcher = 'rofi -show combi'
-local editor = os.getenv 'EDITOR' or 'nano'
-local editor_cmd = terminal .. ' -e ' .. editor
+-- local editor = os.getenv 'EDITOR' or 'nano'
+-- local editor_cmd = terminal .. ' -e ' .. editor
 
 local mod = 'Mod4'
 local alt = 'Mod1'
@@ -143,7 +143,7 @@ local tasklist_buttons = gears.table.join(
 	awful.button(
 		{},
 		3,
-		function() awful.menu.client_list { theme = { width = 256 } } end
+		function() awful.menu.client_list() end
 	),
 	awful.button({}, 4, function() awful.client.focus.byidx(1) end),
 	awful.button({}, 5, function() awful.client.focus.byidx(-1) end)
@@ -548,22 +548,17 @@ for i = 1, #tagkeys do
 			{ description = 'move focused client to tag #' .. i, group = 'tag' }
 		),
 		-- Toggle tag on focused client.
-		awful.key(
-			{ mod, ctrl, shift },
-			key,
-			function()
-				if client.focus then
-					local tag = client.focus.screen.tags[i]
-					if tag then
-						client.focus:toggle_tag(tag)
-					end
+		awful.key({ mod, ctrl, shift }, key, function()
+			if client.focus then
+				local tag = client.focus.screen.tags[i]
+				if tag then
+					client.focus:toggle_tag(tag)
 				end
-			end,
-			{
-				description = 'toggle focused client on tag #' .. i,
-				group = 'tag',
-			}
-		)
+			end
+		end, {
+			description = 'toggle focused client on tag #' .. i,
+			group = 'tag',
+		})
 	)
 end
 
