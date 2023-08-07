@@ -96,7 +96,7 @@ theme.fg_minimize                               = colors.text
 -- theme.fullscreen_hide_border                    = false -- true by default
 
 -- GAP
--- theme.gap_single_client                         = false
+theme.gap_single_client                         = false
 
 -- GRAPH
 -- theme.graph_bg = nil
