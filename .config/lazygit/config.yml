@@ -1,21 +1,20 @@
 gui:
-  # use the mocha catppuccin theme
+  # Rose Pine colors
   theme:
-    lightTheme: false
     activeBorderColor:
-      - "#a6e3a1" # Green
+      - "#31748f" # Pine
       - bold
     inactiveBorderColor:
-      - "#cdd6f4" # Text
+      - "#e0def4" # Text
     optionsTextColor:
-      - "#89b4fa" # Blue
+      - "#9ccfd8" # Foam
     selectedLineBgColor:
-      - "#313244" # Surface0
+      - "#1f1d2e" # Surface
     selectedRangeBgColor:
-      - "#313244" # Surface0
+      - "#1f1d2e" # Surface
     cherryPickedCommitBgColor:
-      - "#94e2d5" # Teal
+      - "#ebbcba" # Teal
     cherryPickedCommitFgColor:
-      - "#89b4fa" # Blue
+      - "#9ccfd8" # Foam
     unstagedChangesColor:
-      - "#f38ba8" # Red
+      - "#eb6f92" # Love
