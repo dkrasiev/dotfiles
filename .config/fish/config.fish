@@ -2,6 +2,10 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+# theme
+# fish_config theme choose "Catppuccin Mocha"
+fish_config theme choose "Rosé Pine"
+
 # environment variables
 set EDITOR nvim 
 set VISUAL nvim 
