@@ -1,41 +1,88 @@
 ----------------------------
 -- dkrasiev awesome theme --
 ----------------------------
-local palette      = require '.theme.catppuccin.mocha'
+-- local catppuccin   = require '.theme.catppuccin.mocha'
+-- local colors       = {
+--     primary   = catppuccin.lavender.hex,
+--     secondary = catppuccin.rosewater.hex,
+--
+--     success   = catppuccin.green.hex,
+--     danger    = catppuccin.red.hex,
+--     warning   = catppuccin.yellow.hex,
+--     info      = catppuccin.blue.hex,
+--
+--     text      = catppuccin.text.hex,
+--     subtle    = catppuccin.subtext0.hex,
+--     muted     = catppuccin.subtext1.hex,
+--
+--     base      = catppuccin.base.hex,
+--     surface   = catppuccin.surface0.hex,
+--     overlay   = catppuccin.overlay0.hex,
+-- }
 
+-- Rose Pine
+local rose_pine    = require('.theme.palettes.rose-pine')
 local colors       = {
-    primary       = palette.lavender.hex,
-    secondary     = palette.rosewater.hex,
+    primary        = rose_pine.iris,
+    secondary      = rose_pine.rose,
 
-    success       = palette.green.hex,
-    danger        = palette.red.hex,
-    warning       = palette.yellow.hex,
+    success        = rose_pine.pine,
+    danger         = rose_pine.love,
+    warning        = rose_pine.gold,
+    info           = rose_pine.foam,
 
-    text          = palette.text.hex,
-    text_headline = palette.text.hex,
-    text_label0   = palette.subtext0.hex,
-    text_label1   = palette.subtext1.hex,
-    text_subtitle = palette.overlay1.hex,
+    text           = rose_pine.text,
+    subtle         = rose_pine.subtle,
+    muted          = rose_pine.muted,
 
-    bg            = palette.base.hex,
-    bg_dark       = palette.mantle.hex,
-    bg_darker     = palette.crust.hex,
+    base           = rose_pine.base,
+    surface        = rose_pine.surface,
+    overlay        = rose_pine.overlay,
+
+    highlight_low  = rose_pine.highlight_low,
+    highlight_mid  = rose_pine.highlight_mid,
+    highlight_high = rose_pine.highlight_high,
 }
 
 local gfs          = require 'gears.filesystem'
 local theme_assets = require 'beautiful.theme_assets'
 local dpi          = require('beautiful.xresources').apply_dpi
-local shape        = require("gears.shape")
+local shape        = require('gears.shape')
 
-local themes_path  = gfs.get_configuration_dir() .. 'theme/'
-local gutter       = dpi(8)
 
-local theme        = {}
+-- MY VARIABLES
+local themes_path     = gfs.get_configuration_dir() .. 'theme/'
+local wallpapers_path = '/home/dkrasiev/Pictures/wallpapers/'
+local gutter          = dpi(8)
+local font            = {
+    family = 'JetBrainsMonoNerdFont',
+    size = {
+        normal = 10,
+        heading = 14,
+    }
+}
 
+
+local function get_files(dir)
+    local filenames = {}
+    for filename in io.popen('ls "' .. dir .. '"'):lines() do
+        table.insert(filenames, filename)
+    end
+    return filenames
+end
+
+local function get_wallpaper()
+    local wallpapers = get_files(wallpapers_path)
+    local wallpaper = wallpapers[math.random(#wallpapers)]
+    return wallpapers_path .. wallpaper
+end
+
+
+local theme                                     = {}
 
 -- DEFAULT VARIABLES
-theme.font                                      = 'JetBrainsMonoNerdFont 10'
-theme.wallpaper                                 = themes_path .. 'background.jpg'
+theme.font                                      = font.family .. ' ' .. font.size.normal
+theme.wallpaper                                 = get_wallpaper
 
 -- ARCCHART
 -- theme.arcchart_border_color = nil
@@ -45,17 +92,17 @@ theme.wallpaper                                 = themes_path .. 'background.jpg
 -- theme.arcchart_thickness = nil
 
 -- BG
-theme.bg_normal                                 = colors.bg
-theme.bg_focus                                  = colors.primary
+theme.bg_normal                                 = colors.base
+theme.bg_focus                                  = colors.overlay
 theme.bg_urgent                                 = colors.danger
-theme.bg_minimize                               = colors.bg_darker
-theme.bg_systray                                = colors.bg
+theme.bg_minimize                               = colors.highlight_low
+theme.bg_systray                                = colors.base
 
 -- BORDER
 theme.border_width                              = dpi(1)
-theme.border_normal                             = colors.bg
+theme.border_normal                             = colors.highlight_high
 theme.border_focus                              = colors.primary
-theme.border_marked                             = colors.warning
+theme.border_marked                             = colors.danger
 
 -- CALENDAR
 -- theme.calendar_style = nil
@@ -88,10 +135,10 @@ theme.border_marked                             = colors.warning
 -- theme.enable_spawn_cursor = nil
 
 -- FG
-theme.fg_normal                                 = colors.text
-theme.fg_focus                                  = colors.bg
-theme.fg_urgent                                 = colors.bg
-theme.fg_minimize                               = colors.text
+theme.fg_normal                                 = colors.subtle
+theme.fg_focus                                  = colors.text
+theme.fg_urgent                                 = colors.danger
+theme.fg_minimize                               = colors.secondary
 
 -- FULLSCREEN
 -- theme.fullscreen_hide_border                    = false -- true by default
@@ -115,8 +162,8 @@ theme.gap_single_client                         = false
 theme.hotkeys_modifiers_fg                      = colors.primary
 -- theme.hotkeys_label_bg = nil
 -- theme.hotkeys_label_fg = nil
-theme.hotkeys_font                              = 'JetBrainsMonoNerdFont 12 bold'
-theme.hotkeys_description_font                  = 'JetBrainsMonoNerdFont 10'
+theme.hotkeys_font                              = font.family .. ' ' .. font.size.heading .. ' ' .. 'bold'
+theme.hotkeys_description_font                  = font.family .. ' ' .. font.size.normal
 theme.hotkeys_group_margin                      = gutter
 
 -- ICON
@@ -170,7 +217,7 @@ theme.layout_tileleft                           = themes_path .. 'layouts/tilele
 -- theme.maximized_hide_border = nil
 
 -- MENU
-theme.menu_submenu_icon                         = themes_path .. "submenu.png"
+theme.menu_submenu_icon                         = themes_path .. 'submenu.png'
 -- theme.menu_font = nil
 theme.menu_height                               = gutter * 3
 theme.menu_width                                = gutter * 64
@@ -476,12 +523,12 @@ theme.wibar_height                              = gutter * 3
 
 theme_assets.recolor_layout(theme, colors.primary)
 
-theme_assets.recolor_titlebar(theme, colors.primary, 'normal')
-theme_assets.recolor_titlebar(theme, colors.primary, 'normal', 'hover')
-theme_assets.recolor_titlebar(theme, colors.primary, 'normal', 'press')
+-- theme_assets.recolor_titlebar(theme, colors.subtle, 'normal')
+-- theme_assets.recolor_titlebar(theme, colors.text, 'normal', 'hover')
+-- theme_assets.recolor_titlebar(theme, colors.primary, 'normal', 'press')
 
-theme_assets.recolor_titlebar(theme, colors.bg, 'focus')
-theme_assets.recolor_titlebar(theme, colors.bg, 'focus', 'hover')
-theme_assets.recolor_titlebar(theme, colors.bg, 'focus', 'press')
+-- theme_assets.recolor_titlebar(theme, colors.subtle, 'focus')
+-- theme_assets.recolor_titlebar(theme, colors.text, 'focus', 'hover')
+-- theme_assets.recolor_titlebar(theme, colors.primary, 'focus', 'press')
 
 return theme

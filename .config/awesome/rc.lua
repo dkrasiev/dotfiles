@@ -2,18 +2,20 @@
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, 'luarocks.loader')
 
-local awful = require 'awful'
-local beautiful = require 'beautiful'
-local gears = require 'gears'
+
+local awful         = require 'awful'
+local beautiful     = require 'beautiful'
+local gears         = require 'gears'
 local hotkeys_popup = require 'awful.hotkeys_popup'
-local naughty = require 'naughty'
-local wibox = require 'wibox'
+local naughty       = require 'naughty'
+local wibox         = require 'wibox'
 require 'awful.autofocus'
 -- local gfs = require 'gears.filesystem'
 -- local menubar = require("menubar")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 -- require("awful.hotkeys_popup.keys")
+
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -38,8 +40,8 @@ do
 
 		naughty.notify {
 			preset = naughty.config.presets.critical,
-			title = 'Oops, an error happened!',
-			text = tostring(err),
+			title  = 'Oops, an error happened!',
+			text   = tostring(err),
 		}
 		in_error = false
 	end)
@@ -50,19 +52,19 @@ end
 local theme = require 'theme.theme'
 beautiful.init(theme)
 
-local terminal = 'kitty'
-local filemanager = 'dolphin'
-local browser = 'google-chrome-stable'
-local launcher = 'rofi -show combi'
+local terminal         = 'kitty'
+local filemanager      = 'dolphin'
+local browser          = 'google-chrome-stable'
+local launcher         = 'rofi -show combi'
 -- local editor = os.getenv 'EDITOR' or 'nano'
 -- local editor_cmd = terminal .. ' -e ' .. editor
 
-local mod = 'Mod4'
-local alt = 'Mod1'
-local ctrl = 'Control'
-local shift = 'Shift'
+local mod              = 'Mod4'
+local alt              = 'Mod1'
+local ctrl             = 'Control'
+local shift            = 'Shift'
 
-local tagkeys = {
+local tagkeys          = {
 	'1',
 	'2',
 	'3',
@@ -75,7 +77,7 @@ local tagkeys = {
 }
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
-awful.layout.layouts = {
+awful.layout.layouts   = {
 	awful.layout.suit.tile,
 	awful.layout.suit.magnifier,
 }
@@ -112,10 +114,10 @@ awful.layout.layouts = {
 local mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Create a textclock widget
-local mytextclock = wibox.widget.textclock()
+local mytextclock      = wibox.widget.textclock()
 
 -- Create a wibox for each screen and add it
-local taglist_buttons = gears.table.join(
+local taglist_buttons  = gears.table.join(
 	awful.button({}, 1, function(t) t:view_only() end),
 	awful.button({ mod }, 1, function(t)
 		if client.focus then
@@ -206,7 +208,7 @@ awful.screen.connect_for_each_screen(function(s)
 		layout = wibox.layout.align.horizontal,
 		{ -- Left widgets
 			layout = wibox.layout.fixed.horizontal,
-			mylauncher,
+			-- mylauncher,
 			s.mytaglist,
 			s.mypromptbox,
 		},
@@ -724,6 +726,5 @@ client.connect_signal(
 -- {{{ MY CUSTOM CONFIG
 -- Autostart
 awful.spawn.with_shell 'picom'
-awful.spawn.with_shell 'autorandr --change'
 awful.spawn.with_shell 'autorandr --change'
 -- }}}
