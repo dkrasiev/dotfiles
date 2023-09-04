@@ -23,8 +23,8 @@
 -- Rose Pine
 local rose_pine    = require('.theme.palettes.rose-pine')
 local colors       = {
-    primary        = rose_pine.iris,
-    secondary      = rose_pine.rose,
+    primary        = rose_pine.rose,
+    secondary      = rose_pine.iris,
 
     success        = rose_pine.pine,
     danger         = rose_pine.love,
@@ -73,7 +73,7 @@ end
 
 local function get_wallpaper()
     local wallpapers = get_files(wallpapers_path)
-    local wallpaper = wallpapers[math.random(#wallpapers)]
+    local wallpaper  = wallpapers[math.random(#wallpapers)]
     return wallpapers_path .. wallpaper
 end
 
