@@ -137,7 +137,7 @@ theme.border_marked                             = colors.danger
 -- FG
 theme.fg_normal                                 = colors.subtle
 theme.fg_focus                                  = colors.text
-theme.fg_urgent                                 = colors.danger
+theme.fg_urgent                                 = colors.text
 theme.fg_minimize                               = colors.secondary
 
 -- FULLSCREEN
