@@ -57,6 +57,8 @@ local filemanager      = 'thunar'
 local browser          = 'google-chrome-stable'
 local launcher         = '~/.config/rofi/launchers/type-2/launcher.sh'
 local powermenu        = '~/.config/rofi/powermenu/type-3/powermenu.sh'
+local volume_step      = '5'
+local brightness_step  = '5'
 -- local editor = os.getenv 'EDITOR' or 'nano'
 -- local editor_cmd = terminal .. ' -e ' .. editor
 
@@ -333,13 +335,13 @@ local globalkeys = gears.table.join(
 	awful.key(
 		{ mod },
 		'e',
-		function() awful.spawn.with_shell(filemanager) end,
+		function() awful.spawn(filemanager) end,
 		{ description = 'open a file manager', group = 'launcher' }
 	),
 	awful.key(
 		{ mod },
 		'w',
-		function() awful.spawn.with_shell(browser) end,
+		function() awful.spawn(browser) end,
 		{ description = 'open a browser', group = 'launcher' }
 	),
 
@@ -429,38 +431,57 @@ local globalkeys = gears.table.join(
 		{ description = 'select previous', group = 'layout' }
 	),
 
-	awful.key({ mod, shift }, 'n', function()
-		local c = awful.client.restore()
-		-- Focus restored client
-		if c then
-			c:emit_signal(
-				'request::activate',
-				'key.unminimize',
-				{ raise = true }
-			)
-		end
-	end, { description = 'restore minimized', group = 'client' }),
+	awful.key(
+		{ mod, shift },
+		'n',
+		function()
+			local c = awful.client.restore()
+			-- Focus restored client
+			if c then
+				c:emit_signal(
+					'request::activate',
+					'key.unminimize',
+					{ raise = true }
+				)
+			end
+		end,
+		{ description = 'restore minimized', group = 'client' }),
 
-	awful.key({}, "XF86MonBrightnessUp",
+	awful.key(
+		{},
+		'XF86MonBrightnessUp',
 		function()
-			os.execute("xbacklight -inc 5")
-		end, { description = "+5", group = "hotkeys" }),
-	awful.key({}, "XF86MonBrightnessDown",
+			awful.spawn('xbacklight -inc ' .. brightness_step)
+		end,
+		{ description = '+' .. brightness_step .. '%', group = 'hotkeys' }),
+	awful.key(
+		{},
+		'XF86MonBrightnessDown',
 		function()
-			os.execute("xbacklight -dec 5")
-		end, { description = "-5%", group = "hotkeys" }),
-	awful.key({}, "XF86AudioRaiseVolume",
+			awful.spawn('xbacklight -dec ' .. brightness_step)
+		end,
+		{ description = '-' .. brightness_step .. '%', group = 'hotkeys' }),
+	awful.key(
+		{},
+		'XF86AudioRaiseVolume',
 		function()
-			os.execute("amixer set Master 5%+")
-		end, { description = "volume up", group = "hotkeys" }),
-	awful.key({}, "XF86AudioLowerVolume",
+			awful.spawn('amixer set Master ' .. volume_step .. '%+')
+		end,
+		{ description = '+' .. volume_step .. '%', group = 'hotkeys' }),
+	awful.key(
+		{},
+		'XF86AudioLowerVolume',
 		function()
-			os.execute("amixer set Master 5%-")
-		end, { description = "volume down", group = "hotkeys" }),
-	awful.key({}, "XF86AudioMute",
+			awful.spawn('amixer set Master ' .. volume_step .. '%-')
+		end,
+		{ description = '-' .. volume_step .. '%', group = 'hotkeys' }),
+	awful.key(
+		{},
+		'XF86AudioMute',
 		function()
-			os.execute("amixer -q set Master toggle")
-		end, { description = "toggle mute", group = "hotkeys" })
+			awful.spawn 'amixer -q set Master toggle'
+		end,
+		{ description = 'toggle mute', group = 'hotkeys' })
 
 
 -- Prompt
@@ -750,6 +771,6 @@ client.connect_signal(
 
 -- {{{ MY CUSTOM CONFIG
 -- Autostart
-awful.spawn.with_shell 'picom'
-awful.spawn.with_shell 'autorandr --change'
+awful.spawn 'picom'
+awful.spawn 'autorandr --change'
 -- }}}
