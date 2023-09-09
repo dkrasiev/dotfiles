@@ -53,9 +53,10 @@ local theme = require 'theme.theme'
 beautiful.init(theme)
 
 local terminal         = 'kitty'
-local filemanager      = 'dolphin'
+local filemanager      = 'thunar'
 local browser          = 'google-chrome-stable'
-local launcher         = 'rofi -show combi'
+local launcher         = '~/.config/rofi/launchers/type-2/launcher.sh'
+local powermenu        = '~/.config/rofi/powermenu/type-3/powermenu.sh'
 -- local editor = os.getenv 'EDITOR' or 'nano'
 -- local editor_cmd = terminal .. ' -e ' .. editor
 
@@ -358,7 +359,9 @@ local globalkeys = gears.table.join(
 	awful.key(
 		{ mod, ctrl },
 		'q',
-		awesome.quit,
+		function()
+			awful.spawn.with_shell(powermenu)
+		end,
 		{ description = 'quit awesome', group = 'awesome' }
 	),
 	awful.key(
@@ -436,7 +439,29 @@ local globalkeys = gears.table.join(
 				{ raise = true }
 			)
 		end
-	end, { description = 'restore minimized', group = 'client' })
+	end, { description = 'restore minimized', group = 'client' }),
+
+	awful.key({}, "XF86MonBrightnessUp",
+		function()
+			os.execute("xbacklight -inc 5")
+		end, { description = "+5", group = "hotkeys" }),
+	awful.key({}, "XF86MonBrightnessDown",
+		function()
+			os.execute("xbacklight -dec 5")
+		end, { description = "-5%", group = "hotkeys" }),
+	awful.key({}, "XF86AudioRaiseVolume",
+		function()
+			os.execute("amixer set Master 5%+")
+		end, { description = "volume up", group = "hotkeys" }),
+	awful.key({}, "XF86AudioLowerVolume",
+		function()
+			os.execute("amixer set Master 5%-")
+		end, { description = "volume down", group = "hotkeys" }),
+	awful.key({}, "XF86AudioMute",
+		function()
+			os.execute("amixer -q set Master toggle")
+		end, { description = "toggle mute", group = "hotkeys" })
+
 
 -- Prompt
 -- awful.key({ modkey }, "x", function()
