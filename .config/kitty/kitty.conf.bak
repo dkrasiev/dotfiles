@@ -4,7 +4,4 @@ font_size 12.0
 window_padding_width 4
 placement_strategy center
 
-background_opacity 0.8
-
-# Rosé Pine
-include rose-pine-theme.conf
+background_opacity 0.66
