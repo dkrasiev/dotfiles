@@ -21,7 +21,7 @@
 -- }
 
 -- Rose Pine
-local rose_pine    = require('.theme.palettes.rose-pine')
+local rose_pine    = require '.theme.palettes.rose-pine'
 local colors       = {
     primary        = rose_pine.rose,
     secondary      = rose_pine.iris,
@@ -46,8 +46,8 @@ local colors       = {
 
 local gfs          = require 'gears.filesystem'
 local theme_assets = require 'beautiful.theme_assets'
-local dpi          = require('beautiful.xresources').apply_dpi
-local shape        = require('gears.shape')
+local dpi          = require 'beautiful.xresources'.apply_dpi
+local shape        = require 'gears.shape'
 
 
 -- MY VARIABLES
