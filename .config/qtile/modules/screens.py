@@ -1,12 +1,9 @@
-import os
-
-from libqtile import bar
+from libqtile import bar, qtile, widget
 from libqtile.config import Screen
 
-# ignore, it's fine
-from modules.keys import terminal
-
-from .widgets import qtile, volume, widget
+from .config import terminal
+from .user import spawn_powermenu
+from .widgets import volume
 
 screens = [
     Screen(
@@ -47,7 +44,7 @@ screens = [
                     display_format="{updates} Updates",
                     foreground="#ffffff",
                     mouse_callbacks={
-                        "Button1": lambda: qtile.cmd_spawn(terminal + " -e yay -Syu")
+                        "Button1": lambda: qtile.cmd_spawn(terminal + " -e paru")
                     },
                     background="#2f343f",
                 ),
@@ -75,9 +72,7 @@ screens = [
                 widget.TextBox(
                     text="",
                     mouse_callbacks={
-                        "Button1": lambda: qtile.cmd_spawn(
-                            os.path.expanduser("~/.config/rofi/powermenu.sh")
-                        )
+                        "Button1": lambda: spawn_powermenu(),
                     },
                     foreground="#e39378",
                 ),
