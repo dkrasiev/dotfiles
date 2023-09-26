@@ -71,18 +71,19 @@ local function get_files(dir)
     return filenames
 end
 
-local function get_wallpaper()
-    local wallpapers = get_files(wallpapers_path)
-    local wallpaper  = wallpapers[math.random(#wallpapers)]
-    return wallpapers_path .. wallpaper
-end
+-- local function get_wallpaper()
+--     local wallpapers = get_files(wallpapers_path)
+--     local wallpaper  = wallpapers[math.random(#wallpapers)]
+--     return wallpapers_path .. wallpaper
+-- end
 
 
 local theme                                     = {}
 
 -- DEFAULT VARIABLES
 theme.font                                      = font.family .. ' ' .. font.size.normal
-theme.wallpaper                                 = get_wallpaper
+-- theme.wallpaper                                 = get_wallpaper
+-- theme.wallpaper                                 = get_wallpaper
 
 -- ARCCHART
 -- theme.arcchart_border_color = nil
