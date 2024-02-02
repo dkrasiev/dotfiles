@@ -1,0 +1,12 @@
+
+bar {
+    i3bar_command i3bar --transparency
+    status_command i3status
+    tray_output primary
+    position bottom
+    mode hide
+    height 32
+    colors {
+      background #242422
+    }
+}
