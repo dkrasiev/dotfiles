@@ -1,0 +1,20 @@
+gui:
+  # Rose Pine colors
+  theme:
+    activeBorderColor:
+      - "#31748f" # Pine
+      - bold
+    inactiveBorderColor:
+      - "#e0def4" # Text
+    optionsTextColor:
+      - "#9ccfd8" # Foam
+    selectedLineBgColor:
+      - "#1f1d2e" # Surface
+    selectedRangeBgColor:
+      - "#1f1d2e" # Surface
+    cherryPickedCommitBgColor:
+      - "#ebbcba" # Teal
+    cherryPickedCommitFgColor:
+      - "#9ccfd8" # Foam
+    unstagedChangesColor:
+      - "#eb6f92" # Love
