@@ -1,0 +1,10 @@
+name: kpismp
+root: ~/Documents/emias/kpismp
+  
+pre_window: cd frontend && nvm use 14
+  
+startup_window: editor
+
+windows:
+  - build: npm start
+  - editor: nvim

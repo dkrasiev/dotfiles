@@ -7,10 +7,14 @@ paru -S --needed \
   lazygit \
   ripgrep \
   tmux \
+  rubygems \
   stow
 
 # link dotfiles
 stow .
+
+# tmuxinator
+gem install tmuxinator
   
 # TPM
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

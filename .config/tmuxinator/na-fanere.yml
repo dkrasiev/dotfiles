@@ -1,0 +1,8 @@
+name: na-fanere
+root: ~/Documents/projects/na-fanere
+
+startup_window: editor
+
+windows:
+  - build: npm run dev
+  - editor: nvim
