@@ -22,7 +22,10 @@ return {
 
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.bash" },
   -- { import = "astrocommunity.pack.rust" },
+  { import = "astrocommunity.pack.kotlin" },
+  { import = "astrocommunity.pack.java" },
 
   -- { import = "astrocommunity/utility/noice-nvim" },
 

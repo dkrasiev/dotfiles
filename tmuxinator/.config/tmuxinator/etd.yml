@@ -1,8 +1,0 @@
-name: tool-etd
-root: ~/Documents/emias/tool-etd
-  
-startup_window: editor
-
-windows:
-  - build: npm run dev
-  - editor: nvim
