@@ -1,2 +1,3 @@
 .git
-install\.sh
+.gitignore
+.scripts
