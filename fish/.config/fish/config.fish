@@ -24,3 +24,7 @@ fish_add_path $BUN_INSTALL/bin $PATH
 # set -x PATH $BUN_INSTALL/bin $PATH
 
 fish_add_path ~/.local/share/gem/ruby/3.0.0/gems/tmuxinator-3.0.5/bin
+
+if type -q zoxide
+  zoxide init fish | source
+end
