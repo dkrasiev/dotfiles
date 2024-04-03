@@ -1,0 +1,13 @@
+[user]
+	name = Dmitry Krasiev
+	email = dkrasiev@datafire.ru
+[credential]
+	helper = store
+[merge]
+	ff = false
+[pull]
+	ff = only
+[core]
+	editor = nvim
+[maintenance]
+	repo = /home/dkrasiev/Documents/emias/kpismp
