@@ -10,7 +10,7 @@ fish_config theme choose "Rosé Pine"
 set -x EDITOR nvim 
 set -x VISUAL nvim 
 
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias gl='git log --oneline --graph'
 
 # remove fish greeting message
 set fish_greeting
