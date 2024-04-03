@@ -29,7 +29,8 @@ root: ~/Documents/emias/kpiprofilevop
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 pre_window:
   - cd frontend
-  - nvm use lts
+  - nvm use 14
+  - clear
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf

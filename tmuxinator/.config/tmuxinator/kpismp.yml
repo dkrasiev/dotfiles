@@ -30,6 +30,7 @@ root: ~/Documents/emias/kpismp
 pre_window:
   - cd frontend
   - nvm use 14
+  - clear
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
