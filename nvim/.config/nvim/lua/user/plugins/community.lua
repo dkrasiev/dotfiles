@@ -32,4 +32,5 @@ return {
   { import = "astrocommunity/note-taking/obsidian-nvim" },
   { import = "astrocommunity/fuzzy-finder/telescope-zoxide" },
   { import = "astrocommunity/editing-support/rainbow-delimiters-nvim" },
+  { import = "astrocommunity/project/nvim-spectre" },
 }
