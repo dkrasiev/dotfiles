@@ -1,7 +1,7 @@
-# /home/dkrasiev/.config/tmuxinator/vop.yml
+# /home/dkrasiev/.config/tmuxinator/kpidoctormoe.yml
 
-name: vop
-root: ~/Documents/emias/kpiprofilevop
+name: kpidoctormoe
+root: ~/Documents/emias/kpidoctormoe
 
 # Optional tmux socket
 # socket_name: foo
@@ -27,10 +27,7 @@ root: ~/Documents/emias/kpiprofilevop
 # on_project_stop: command
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window:
-  - cd frontend
-  - nvm use 14
-  - clear
+pre_window: cd frontend; nvm use 14; clear
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -48,9 +45,5 @@ startup_window: editor
 # attach: false
 
 windows:
-  - build:
-      layout: even-horizontal
-      panes:
-        - npm run lib:watch
-        - npm start -- --port 4300
+  - build: npm start
   - editor: nvim

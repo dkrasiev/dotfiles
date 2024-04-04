@@ -1,7 +1,7 @@
-# /home/dkrasiev/.config/tmuxinator/kpismp.yml
+# /home/dkrasiev/.config/tmuxinator/vop.yml
 
-name: kpismp
-root: ~/Documents/emias/kpismp
+name: vop
+root: ~/Documents/emias/kpiprofvop
 
 # Optional tmux socket
 # socket_name: foo
@@ -45,5 +45,9 @@ startup_window: editor
 # attach: false
 
 windows:
-  - build: npm start
+  - build:
+      layout: even-horizontal
+      panes:
+        - npm run lib:watch
+        - npm start -- --port 4300
   - editor: nvim
