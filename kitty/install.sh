@@ -1,3 +1,3 @@
 #!/bin/bash
 
-paru -S --needed kitty
+paru -S --needed kitty ttf-jetbrains-mono-nerd
