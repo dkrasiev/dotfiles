@@ -45,5 +45,5 @@ startup_window: editor
 # attach: false
 
 windows:
-  - build: npm start
+  - build: npm start -- --port 4400
   - editor: nvim
