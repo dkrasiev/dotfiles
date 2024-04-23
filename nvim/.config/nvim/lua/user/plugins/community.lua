@@ -19,6 +19,7 @@ return {
   -- misc for web dev
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.prisma" },
 
   { import = "astrocommunity.pack.markdown" },
