@@ -7,6 +7,7 @@ return {
   "AstroNvim/astrocommunity",
 
   { import = "astrocommunity.colorscheme.rose-pine" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
 
   { import = "astrocommunity.completion.codeium-vim" },
   { import = "astrocommunity.completion.cmp-cmdline" },
@@ -36,9 +37,12 @@ return {
 
   { import = "astrocommunity.lsp.ts-error-translator-nvim" },
 
-  { import = "astrocommunity/file-explorer/oil-nvim" },
-  -- { import = "astrocommunity/note-taking/obsidian-nvim" },
-  { import = "astrocommunity/fuzzy-finder/telescope-zoxide" },
-  { import = "astrocommunity/editing-support/rainbow-delimiters-nvim" },
-  { import = "astrocommunity/project/nvim-spectre" },
+  { import = "astrocommunity.file-explorer.oil-nvim" },
+  -- { import = "astrocommunity.note-taking.obsidian-nvim" },
+  { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
+  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
+  { import = "astrocommunity.editing-support.nvim-treesitter-context" },
+  { import = "astrocommunity.project.nvim-spectre" },
+  { import = "astrocommunity.workflow.hardtime-nvim" },
+  { import = "astrocommunity.indent.mini-indentscope" },
 }
