@@ -42,6 +42,7 @@ return {
   { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   { import = "astrocommunity.editing-support.nvim-treesitter-context" },
+  { import = "astrocommunity.editing-support.undotree" },
   { import = "astrocommunity.project.nvim-spectre" },
   -- { import = "astrocommunity.workflow.hardtime-nvim" },
   { import = "astrocommunity.indent.mini-indentscope" },
