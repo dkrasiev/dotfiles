@@ -1,4 +1,9 @@
 return {
-  'folke/noice.nvim',
-  enabled = true,
-}
+  "folke/noice.nvim",
+  optional = true,
+  opts = {
+    presets = {
+      lsp_doc_border = true,
+    },
+  },
+};

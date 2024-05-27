@@ -4,20 +4,20 @@
 
 local map = vim.keymap.set
 
-map("i", "jj", "<esc>")
-map("i", "jk", "<esc>")
+map("i", "jj", "<Esc>")
+map("i", "jk", "<Esc>")
 map("n", ";", ":")
 
-map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
--- map("n", "<leader>q", "<cmd>confirm q<cr>", { desc = "Quit window" })
--- map("n", "<leader>Q", "<cmd>confirm qall<cr>", { desc = "Exit" })
+map("n", "<Leader>w", "<Cmd>w<CR>", { desc = "Save" })
+-- map("n", "<Leader>q", "<cmd>confirm q<cr>", { desc = "Quit window" })
+-- map("n", "<Leader>Q", "<cmd>confirm qall<cr>", { desc = "Exit" })
 
-map("n", "<leader>c", LazyVim.ui.bufremove, { desc = "Close buffer" })
+map("n", "<Leader>c", LazyVim.ui.bufremove, { desc = "Close buffer" })
 
-map({ "n", "v" }, "<leader>lf", function()
+map({ "n", "v" }, "<Leader>lf", function()
   LazyVim.format({ force = true })
 end, { desc = "Format" })
 
-map("n", "<leader>h", "<cmd>Dashboard<cr>", { desc = "Open dashboard" })
+map("n", "<Leader>h", "<Cmd>Dashboard<CR>", { desc = "Open dashboard" })
 
-map("n", "<leader>zz", require('zen-mode').toggle, { desc = "Toggle zen mode" })
+map("n", "<Leader>zz", require('zen-mode').toggle, { desc = "Toggle zen mode" })
