@@ -18,6 +18,6 @@ map({ "n", "v" }, "<Leader>lf", function()
   LazyVim.format({ force = true })
 end, { desc = "Format" })
 
-map("n", "<Leader>h", "<Cmd>Dashboard<CR>", { desc = "Open dashboard" })
+-- map("n", "<Leader>h", "<Cmd>Dashboard<CR>", { desc = "Open dashboard" })
 
 map("n", "<Leader>zz", require('zen-mode').toggle, { desc = "Toggle zen mode" })
