@@ -1,7 +1,7 @@
 # /home/dkrasiev/.config/tmuxinator/vop.yml
 
 name: vop
-root: ~/Documents/emias/kpiprofvop
+root: ~/Documents/projects/emias/kpiprofvop
 
 # Optional tmux socket
 # socket_name: foo

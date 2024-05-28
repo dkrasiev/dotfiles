@@ -1,7 +1,7 @@
 # /home/dkrasiev/.config/tmuxinator/etd.yml
 
 name: etd
-root: ~/Documents/emias/tool-etd
+root: ~/Documents/projects/emias/tool-etd
 
 # Optional tmux socket
 # socket_name: foo

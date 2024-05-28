@@ -1,7 +1,7 @@
 # /home/dkrasiev/.config/tmuxinator/kpismp.yml
 
 name: kpismp
-root: ~/Documents/emias/kpismp
+root: ~/Documents/projects/emias/kpismp
 
 # Optional tmux socket
 # socket_name: foo

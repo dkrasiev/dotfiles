@@ -1,7 +1,7 @@
 # /home/dkrasiev/.config/tmuxinator/kpidoctormoe.yml
 
 name: kpidoctormoe
-root: ~/Documents/emias/kpidoctormoe
+root: ~/Documents/projects/emias/kpidoctormoe
 
 # Optional tmux socket
 # socket_name: foo
