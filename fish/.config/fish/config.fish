@@ -12,6 +12,7 @@ set -x VISUAL nvim
 
 alias gl='git log --oneline --graph'
 alias v='nvim'
+alias emias-shell='nix develop ~/nix#emias -c fish'
 
 # remove fish greeting message
 set fish_greeting
