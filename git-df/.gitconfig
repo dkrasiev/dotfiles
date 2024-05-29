@@ -9,5 +9,6 @@
 	ff = only
 [core]
 	editor = nvim
+	autocrlf = input
 [maintenance]
 	repo = /home/dkrasiev/Documents/projects/emias/kpismp
