@@ -87,7 +87,24 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # Aliases
 alias v='nvim'
+alias emias-shell='nix develop ~/nix#emias -c zsh'
 
 # Variables
 export EDITOR='nvim'
 export VISUAL='nvim'
+
+# functions
+
+reload() {
+  case $1 in 
+    kitty)
+      kill -sigusr1 $(pidof kitty)
+    ;;
+    zsh)
+      source ~/.zshrc
+    ;;
+    tmux)
+      tmux source ~/.config/tmux/tmux.conf
+    ;;
+  esac
+}
