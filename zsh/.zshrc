@@ -92,6 +92,7 @@ alias emias-shell='nix develop ~/nix#emias -c zsh'
 # Variables
 export EDITOR='nvim'
 export VISUAL='nvim'
+export FLAKE="$HOME/nix"
 
 # functions
 
