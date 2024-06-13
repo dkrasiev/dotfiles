@@ -78,7 +78,10 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # Aliases
 alias v='nvim'
-alias emias-shell='nix develop ~/nix#emias -c zsh'
+
+nshell() {
+  nix develop ~/nix#$1 -c zsh
+}
 
 # Variables
 export EDITOR='nvim'

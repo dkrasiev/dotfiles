@@ -4,5 +4,6 @@ name: configs
 root: ~/
 
 windows:
-  - nix: cd nix && nvim
-  - dotfiles: cd .dotfiles && nvim
+  - config: cd .config
+  - dotfiles: cd .dotfiles
+  - nix: cd nix
