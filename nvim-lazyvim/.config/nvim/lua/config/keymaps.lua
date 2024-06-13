@@ -19,5 +19,3 @@ map({ "n", "v" }, "<Leader>lf", function()
 end, { desc = "Format" })
 
 -- map("n", "<Leader>h", "<Cmd>Dashboard<CR>", { desc = "Open dashboard" })
-
-map("n", "<Leader>zz", require('zen-mode').toggle, { desc = "Toggle zen mode" })
