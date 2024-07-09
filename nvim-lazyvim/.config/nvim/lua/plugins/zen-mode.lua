@@ -12,10 +12,10 @@ return {
     },
     plugins = {
       -- tmux = { enabled = true },
-      kitty = {
-        enabled = true,
-        font = "+2",
-      },
+      -- kitty = {
+      --   enabled = true,
+      --   font = "+2",
+      -- },
     },
   },
 }
