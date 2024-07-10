@@ -27,7 +27,7 @@ root: ~/Documents/projects/emias/kpidoctormoe
 # on_project_stop: command
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: cd frontend; nshell emias; clear
+# pre_window: command
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -45,5 +45,5 @@ startup_window: editor
 # attach: false
 
 windows:
-  - build: npm start -- --port 4400
-  - editor: nvim
+  - build: cd frontend; nshell emias; clear; npm start -- --port 4400
+  - editor: cd frontend; nvim
