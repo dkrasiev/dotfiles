@@ -15,7 +15,7 @@ root: ~/Documents/projects/emias/kpiprofvop
 # on_project_start: command
 
 # Run on project start, the first time
-on_project_first_start: cd frontend; nshell emias; npm i
+on_project_first_start: cd frontend; nix develop ~/nix#emias -c zsh; npm i
 
 # Run on project start, after the first time
 # on_project_restart: command
@@ -48,6 +48,6 @@ windows:
   - build:
       layout: even-horizontal
       panes:
-        - cd frontend; nshell emias; clear; npm run lib:watch
-        - cd frontend; nshell emias; clear; npm start -- --port 4300
+        - cd frontend; nix develop ~/nix#emias -c zsh; clear; npm run lib:watch
+        - cd frontend; nix develop ~/nix#emias -c zsh; clear; npm start -- --port 4300
   - editor: cd frontend; nvim

@@ -15,7 +15,7 @@ root: ~/Documents/projects/emias/kpidoctormoe
 # on_project_start: command
 
 # Run on project start, the first time
-# on_project_first_start: command
+on_project_first_start: cd frontend; nix develop ~/nix#emias -c zsh; npm i
 
 # Run on project start, after the first time
 # on_project_restart: command
@@ -45,5 +45,5 @@ startup_window: editor
 # attach: false
 
 windows:
-  - build: cd frontend; nshell emias; clear; npm start -- --port 4400
+  - build: cd frontend; nix develop ~/nix#emias -c zsh; clear; npm start -- --port 4400
   - editor: cd frontend; nvim
