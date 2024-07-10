@@ -15,7 +15,7 @@ root: ~/Documents/projects/emias/kpiprofvop
 # on_project_start: command
 
 # Run on project start, the first time
-on_project_first_start: cd frontend; nix develop ~/nix#emias -c zsh; npm i
+# on_project_first_start: cd frontend; nix develop ~/nix#emias -c zsh; npm i
 
 # Run on project start, after the first time
 # on_project_restart: command
