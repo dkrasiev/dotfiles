@@ -1,0 +1,8 @@
+# /home/dkrasiev/.config/tmuxinator/nafanere.yaml
+
+name: nafanere
+root: ~/Documents/projects/nafanere-web-app
+
+windows:
+  - build: npm run dev
+  - editor: nvim
