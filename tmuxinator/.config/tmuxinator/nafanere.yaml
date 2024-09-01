@@ -3,6 +3,8 @@
 name: nafanere
 root: ~/Documents/projects/nafanere-web-app
 
+startup_window: editor
+
 windows:
   - build: npm run dev
   - editor: nvim
