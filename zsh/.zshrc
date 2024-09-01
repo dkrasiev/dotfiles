@@ -29,6 +29,7 @@ zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::nvm
 
 # Load completions
 autoload -Uz compinit && compinit
