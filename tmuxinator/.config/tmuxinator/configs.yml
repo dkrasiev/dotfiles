@@ -1,9 +1,7 @@
-# /home/dkrasiev/.config/tmuxinator/configs.yml
-
 name: configs
 root: ~/
 
 windows:
-  - config: cd .config
-  - dotfiles: cd .dotfiles
-  - nix: cd nix
+  - nix: cd nix; nvim
+  - dotfiles: cd .dotfiles; nvim
+  - config: cd .config; nvim
