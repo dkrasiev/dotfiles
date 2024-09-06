@@ -45,5 +45,5 @@ startup_window: editor
 # attach: false
 
 windows:
-  - build: cd frontend; nix develop ~/nix#emias -c zsh; clear; npm start -- --port 4400
+  - build: cd frontend; nshell emias
   - editor: cd frontend; nvim

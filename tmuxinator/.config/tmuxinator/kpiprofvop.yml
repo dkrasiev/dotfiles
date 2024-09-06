@@ -48,6 +48,6 @@ windows:
   - build:
       layout: even-horizontal
       panes:
-        - cd frontend; nix develop ~/nix#emias -c zsh; clear; npm run lib:watch
-        - cd frontend; nix develop ~/nix#emias -c zsh; clear; npm start -- --port 4300
+        - cd frontend; nshell emias
+        - cd frontend; nshell emias
   - editor: cd frontend; nvim
