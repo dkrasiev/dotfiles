@@ -2,6 +2,31 @@ return {
   "nvim-neo-tree/neo-tree.nvim",
   optional = true,
   opts = {
+    default_component_configs = {
+      container = {
+        enable_character_fade = false,
+      },
+      -- If you don't want to use these columns, you can set `enabled = false` for each of them individually
+      file_size = {
+        enabled = false,
+        required_width = 64, -- min width of window required to show this column
+      },
+      type = {
+        enabled = false,
+        required_width = 122, -- min width of window required to show this column
+      },
+      last_modified = {
+        enabled = false,
+        required_width = 88, -- min width of window required to show this column
+      },
+      created = {
+        enabled = false,
+        required_width = 110, -- min width of window required to show this column
+      },
+      symlink_target = {
+        enabled = false,
+      },
+    },
     commands = {
       parent_or_close = function(state)
         local node = state.tree:get_node()
