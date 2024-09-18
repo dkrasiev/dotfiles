@@ -8,7 +8,7 @@ windows:
   - build:
       layout: even-horizontal
       panes:
-        - lib: nix develop ~/nix#emias -c zsh -c "npm run lib:watch"
+        - lib: nix develop ~/nix#emias -c zsh -c "npm run library:watch"
         - app: nix develop ~/nix#emias -c zsh -c "npm run start -- --port 4500"
   - editor: nvim
   - verify:
