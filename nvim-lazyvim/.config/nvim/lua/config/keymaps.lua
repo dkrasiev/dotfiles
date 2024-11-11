@@ -8,14 +8,13 @@ map("i", "jj", "<Esc>")
 map("i", "jk", "<Esc>")
 map("n", ";", ":")
 
-map("n", "<Leader>w", "<Cmd>w<CR>", { desc = "Save" })
+map("n", "<Leader>w", "<Cmd>w<CR>", { desc = "Write" })
+
 -- map("n", "<Leader>q", "<cmd>confirm q<cr>", { desc = "Quit window" })
 -- map("n", "<Leader>Q", "<cmd>confirm qall<cr>", { desc = "Exit" })
 
-map("n", "<Leader>c", LazyVim.ui.bufremove, { desc = "Close buffer" })
-
-map({ "n", "v" }, "<Leader>lf", function()
-  LazyVim.format({ force = true })
-end, { desc = "Format" })
+-- map({ "n", "v" }, "<Leader>lf", function()
+--   LazyVim.format({ force = true })
+-- end, { desc = "Format" })
 
 -- map("n", "<Leader>h", "<Cmd>Dashboard<CR>", { desc = "Open dashboard" })
