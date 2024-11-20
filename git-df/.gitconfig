@@ -10,5 +10,6 @@
 [core]
 	editor = nvim
 	autocrlf = input
+	fileMode = false
 [maintenance]
 	repo = /home/dkrasiev/Documents/projects/emias/kpismp
