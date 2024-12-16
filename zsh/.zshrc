@@ -83,6 +83,7 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # Aliases
 alias v='nvim'
+alias lg='lazygit'
 
 nshell() {
   nix develop ~/nix#$1 -c zsh
