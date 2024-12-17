@@ -7,4 +7,11 @@ return {
     build = function()
         vim.fn["firenvim#install"](0)
     end,
+    config = function()
+      vim.g.firenvim_config = {
+        localSettings = {
+          ['.*'] = { priority = 0, takeover = 'never' },
+        },
+      }
+    end,
 }
