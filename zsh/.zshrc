@@ -92,7 +92,6 @@ nshell() {
 # Variables
 export EDITOR='nvim'
 export VISUAL='nvim'
-export FLAKE="$HOME/nix"
 
 # functions
 
