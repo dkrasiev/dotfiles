@@ -1,7 +1,7 @@
 name: kpiprofvop
 root: ~/Documents/projects/emias/kpiprofvop
 
-on_project_first_start: cd frontend && nix develop ~/nix#emias -c zsh -c "npm i"
+on_project_first_start: cd frontend && nshell emias "npm i"
 pre_window: cd frontend
 startup_window: editor
 
@@ -9,6 +9,6 @@ windows:
   - build:
       layout: even-horizontal
       panes:
-        - lib: nix develop ~/nix#emias -c zsh -c "npm run lib:watch"
-        - app: nix develop ~/nix#emias -c zsh -c "npm run start -- --port 4300"
+        - lib: nshell emias "npm run lib:watch"
+        - app: nshell emias "npm run start -- --port 4300"
   - editor: nvim

@@ -1,15 +1,15 @@
 name: kpismp
 root: ~/Documents/projects/emias/kpismp
 
-on_project_first_start: cd frontend && nix develop ~/nix#emias -c zsh -c "npm i"
+on_project_first_start: cd frontend && nshell emias "npm i"
 pre_window: cd frontend
 startup_window: editor
 
 windows:
-  - build: nix develop ~/nix#emias -c zsh -c "npm run start -- --port 4200"
+  - build: nshell emias "npm run start -- --port 4200"
   - editor: nvim
   - verify:
       layout: even-horizontal
       panes:
-        - test: nix develop ~/nix#emias -c zsh -c "npx ng test @emias-clinician/smp --watch --code-coverage --browsers Chrome"
-        - lint: nix develop ~/nix#emias -c zsh
+        - test: nshell emias "npx ng test @emias-clinician/smp --watch --code-coverage --browsers Chrome"
+        - lint: nshell emias

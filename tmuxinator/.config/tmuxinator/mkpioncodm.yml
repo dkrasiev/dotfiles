@@ -8,11 +8,11 @@ windows:
   - build:
       layout: even-horizontal
       panes:
-        - lib: nix develop ~/nix#emias -c zsh -c "npm run library:watch"
-        - app: nix develop ~/nix#emias -c zsh -c "npm run start -- --port 4500"
+        - lib: nshell emias "npm run library:watch"
+        - app: nshell emias "npm run start -- --port 4500"
   - editor: nvim
   - verify:
       layout: even-horizontal
       panes:
-        - test: nix develop ~/nix#emias -c zsh -c "npx ng test @emias-kpi/oncodm --watch --code-coverage --browsers Chrome"
-        - lint: nix develop ~/nix#emias -c zsh
+        - test: nshell emias "npx ng test @emias-kpi/oncodm --watch --code-coverage --browsers Chrome"
+        - lint: nshell emias

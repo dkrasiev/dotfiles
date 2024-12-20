@@ -5,5 +5,5 @@ on_project_first_start: npm i
 startup_window: editor
 
 windows:
-  - build: nix develop ~/nix#prisma -c zsh -c "npm run dev"
+  - build: nshell prisma "npm run dev"
   - editor: nvim

@@ -1,10 +1,10 @@
 name: kpidoctormoe
 root: ~/Documents/projects/emias/kpidoctormoe
 
-on_project_first_start: cd frontend && nix develop ~/nix#emias -c zsh -c "npm i"
+on_project_first_start: cd frontend && nshell emias "npm i"
 pre_window: cd frontend
 startup_window: editor
 
 windows:
-  - build: nix develop ~/nix#emias -c zsh -c "npm run start -- --port 4400"
+  - build: nshell emias "npm run start -- --port 4400"
   - editor: nvim
