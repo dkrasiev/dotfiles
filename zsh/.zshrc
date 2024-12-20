@@ -85,15 +85,23 @@ eval "$(zoxide init --cmd cd zsh)"
 alias v='nvim'
 alias lg='lazygit'
 
-nshell() {
-  nix develop ~/nix#$1 -c zsh
-}
-
 # Variables
 export EDITOR='nvim'
 export VISUAL='nvim'
 
 # functions
+nshell() {
+  case "$#" in
+  "0")
+  ;;
+  "1")
+    nix develop /etc/nixos#$1 -c zsh
+  ;;
+  "2")
+    nix develop /etc/nixos#$1 -c zsh -c $2
+  ;;
+  esac
+}
 
 reload() {
   case $1 in 
