@@ -1,7 +1,6 @@
 name: kpismp
 root: ~/Documents/projects/emias/kpismp
 
-on_project_first_start: cd frontend && nshell emias "npm i"
 pre_window: cd frontend
 startup_window: editor
 
