@@ -2,6 +2,6 @@ name: configs
 root: ~/
 
 windows:
-  - nix: cd nix; nvim
+  - nix: cd /etc/nixos; nvim
   - dotfiles: cd .dotfiles; nvim
   - config: cd .config; nvim
