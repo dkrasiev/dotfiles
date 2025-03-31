@@ -1,5 +1,5 @@
 name: kpismp
-root: ~/Documents/projects/emias/kpismp
+root: ~/Documents/projects/kpismp
 
 pre_window: cd frontend
 startup_window: editor

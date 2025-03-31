@@ -1,5 +1,5 @@
 name: etd
-root: ~/Documents/projects/emias/tool-etd
+root: ~/Documents/projects/tool-etd
 
 on_project_first_start: npm i
 startup_window: editor

@@ -1,5 +1,5 @@
 name: kpiprofvop
-root: ~/Documents/projects/emias/kpiprofvop
+root: ~/Documents/projects/kpiprofvop
 
 pre_window: cd frontend
 startup_window: editor
