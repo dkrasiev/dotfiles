@@ -1,0 +1,13 @@
+name: kpiprofvop
+root: ~/Documents/projects/kpiprofvop
+
+pre_window: cd frontend
+startup_window: editor
+
+windows:
+  - build:
+      layout: even-horizontal
+      panes:
+        - lib: nshell emias "npm run lib:watch"
+        - app: nshell emias "npm run start -- --port 4300"
+  - editor: nvim

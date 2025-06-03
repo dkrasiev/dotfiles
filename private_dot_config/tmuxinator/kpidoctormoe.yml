@@ -1,0 +1,9 @@
+name: kpidoctormoe
+root: ~/Documents/projects/kpidoctormoe
+
+pre_window: cd frontend
+startup_window: editor
+
+windows:
+  - build: nshell emias "npm run start -- --port 4400"
+  - editor: nvim

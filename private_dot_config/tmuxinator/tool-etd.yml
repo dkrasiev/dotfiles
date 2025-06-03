@@ -1,0 +1,9 @@
+name: etd
+root: ~/Documents/projects/tool-etd
+
+on_project_first_start: npm i
+startup_window: editor
+
+windows:
+  - build: nshell prisma "npm run dev"
+  - editor: nvim

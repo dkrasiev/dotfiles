@@ -1,0 +1,18 @@
+name: mkpioncodm
+root: ~/Documents/projects/mkpioncodm
+
+pre_window: cd frontend
+startup_window: editor
+
+windows:
+  - build:
+      layout: even-horizontal
+      panes:
+        - lib: nshell emias "npm run library:watch"
+        - app: nshell emias "npm run start -- --port 4500"
+  - editor: nvim
+  - verify:
+      layout: even-horizontal
+      panes:
+        - test: nshell emias "npx ng test @emias-kpi/oncodm --watch --code-coverage --browsers Chrome"
+        - lint: nshell emias

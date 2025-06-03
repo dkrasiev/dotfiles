@@ -1,0 +1,9 @@
+name: nafanere
+root: ~/Documents/projects/nafanere-web-app
+
+on_project_first_start: npm i
+startup_window: editor
+
+windows:
+  - build: npm run dev
+  - editor: nvim

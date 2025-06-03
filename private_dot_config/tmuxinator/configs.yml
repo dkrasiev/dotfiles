@@ -1,0 +1,7 @@
+name: configs
+root: ~/
+
+windows:
+  - nix: cd /etc/nixos; nvim
+  - dotfiles: cd .dotfiles; nvim
+  - config: cd .config; nvim
