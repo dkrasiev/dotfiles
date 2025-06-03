@@ -1,0 +1,4 @@
+data:
+  user:
+    name: Dmitry Krasiev
+    email: {{ if eq .chezmoi.hostname "work-pc" }}dkrasiev@datafire.ru{{ else }}dmitrykrasiev@gmail.com{{ end }}
