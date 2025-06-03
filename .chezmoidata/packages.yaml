@@ -1,0 +1,11 @@
+packages:
+  darwin:
+    brews:
+      - git
+      - zsh
+      - fzf
+      - zoxide
+      - neovim
+      - tmux
+      - tmuxinator
+    casks: []
