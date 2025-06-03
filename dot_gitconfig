@@ -1,0 +1,11 @@
+[user]
+	name = Dmitry Krasiev
+	email = dmitrykrasiev@gmail.com
+[credential]
+	helper = store
+[merge]
+	ff = false
+[pull]
+	ff = only
+[core]
+	editor = nvim
