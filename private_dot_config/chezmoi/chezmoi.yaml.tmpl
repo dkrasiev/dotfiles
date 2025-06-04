@@ -1,3 +1,11 @@
+encryption: age
+age:
+  {{- if eq .chezmoi.os "darwin" }}
+  identity: "/Users/dkrasiev/key.txt"
+  {{- else }}
+  identity: "/home/dkrasiev/key.txt"
+  {{- end }}
+  recipient: "age10qysnl85zrzx5k0kfv7ae4cywx8amw3nqmcxsh8zvzlnwm4734aslyha38"
 data:
   user:
     name: Dmitry Krasiev
