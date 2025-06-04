@@ -2,6 +2,9 @@
 alias v='nvim'
 alias lg='lazygit'
 alias c='clear'
+{{- if eq .chezmoi.os "darwin" }}
+alias docker='podman'
+{{- end }}
 
 # Variables
 export EDITOR='nvim'
