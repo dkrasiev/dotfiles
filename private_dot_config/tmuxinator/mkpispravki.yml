@@ -1,0 +1,13 @@
+name: mkpispravki
+root: ~/Documents/projects/mkpispravki
+
+startup_window: editor
+
+windows:
+  - build: nshell emias "npm run dev"
+  - editor: nvim
+  - tests:
+      layout: even-horizontal
+      panes:
+        - test: nshell emias "npm run library:test -- --watch --browsers Chrome --code-coverage"
+        - lint: nshell emias
