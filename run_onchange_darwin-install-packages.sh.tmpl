@@ -8,7 +8,7 @@ brew {{ . | quote }}
 {{ end -}}
 
 {{ range .packages.darwin.casks -}}
-brew install --cask {{ . | quote }}
+cask {{ . | quote }}
 {{ end -}}
 
 EOF
