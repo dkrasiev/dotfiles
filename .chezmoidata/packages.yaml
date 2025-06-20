@@ -1,11 +1,25 @@
 packages:
   darwin:
     brews:
-      - git
-      - zsh
       - fzf
       - zoxide
+      - ripgrep
       - neovim
       - tmux
       - tmuxinator
-    casks: []
+      - lazygit
+      - podman
+      - gh
+      - nvm
+      - luarocks
+    casks:
+      - obsidian
+      - visual-studio-code
+      - telegram
+      - raycast
+      - iterm2
+      - font-jetbrains-mono-nerd-font
+      - google-chrome
+      - amneziavpn
+      - openvpn-connect
+      - iina
