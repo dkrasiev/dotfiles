@@ -1,3 +1,7 @@
+{{- if eq .chezmoi.os "darwin" -}}
+export PATH=$PATH:/opt/homebrew/bin
+
+{{ end -}}
 source "$HOME/.config/zsh/antigen.zsh"
 source "$HOME/.config/zsh/antigen-plugins.zsh"
 
