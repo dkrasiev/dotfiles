@@ -1,5 +1,6 @@
 {{- if eq .chezmoi.os "darwin" -}}
 export PATH=$PATH:/opt/homebrew/bin
+source "$HOME/.config/zsh/nvm.zsh"
 
 {{ end -}}
 source "$HOME/.config/zsh/antigen.zsh"
@@ -8,5 +9,8 @@ source "$HOME/.config/zsh/antigen-plugins.zsh"
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+{{ if eq .chezmoi.os "darwin" -}}
+eval "$(jenv init -)"
+{{- end }}
 
 source "$HOME/.config/zsh/dkrasiev.zsh"

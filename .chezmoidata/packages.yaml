@@ -11,10 +11,13 @@ packages:
       - podman
       - gh
       - nvm
+      - jenv
       - luarocks
+      - maven
     casks:
       - obsidian
       - visual-studio-code
+      - cursor
       - telegram
       - raycast
       - iterm2
@@ -23,3 +26,9 @@ packages:
       - amneziavpn
       - openvpn-connect
       - iina
+      - transmission
+      - steam
+      - whisky
+      - dbeaver-community
+      - bruno
+      - intellij-idea-ce

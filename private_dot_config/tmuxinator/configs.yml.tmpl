@@ -2,6 +2,8 @@ name: configs
 root: ~/
 
 windows:
+{{- if ne .chezmoi.os "darwin" }}
   - nix: cd /etc/nixos; nvim
-  - dotfiles: cd .dotfiles; nvim
+{{ end }}
+  - dotfiles: chezmoi cd; nvim
   - config: cd .config; nvim
