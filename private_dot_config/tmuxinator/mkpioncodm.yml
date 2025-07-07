@@ -8,11 +8,7 @@ windows:
   - build:
       layout: even-horizontal
       panes:
-        - lib: nshell emias "npm run library:watch"
-        - app: nshell emias "npm run start -- --port 4500"
+        - lib: npm run library:watch
+        - app: npm run start -- --port 4500
   - editor: nvim
-  - verify:
-      layout: even-horizontal
-      panes:
-        - test: nshell emias "npx ng test @emias-kpi/oncodm --watch --code-coverage --browsers Chrome"
-        - lint: nshell emias
+  - test: npx ng test @emias-kpi/oncodm --watch --code-coverage --browsers Chrome

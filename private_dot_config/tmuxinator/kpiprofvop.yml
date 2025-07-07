@@ -8,6 +8,6 @@ windows:
   - build:
       layout: even-horizontal
       panes:
-        - lib: nshell emias "npm run lib:watch"
-        - app: nshell emias "npm run start -- --port 4300"
+        - library: npm run lib:watch
+        - app: npm run start -- --port 4300
   - editor: nvim

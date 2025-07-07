@@ -5,10 +5,6 @@ pre_window: cd frontend
 startup_window: editor
 
 windows:
-  - build: nshell emias "npm run start -- --port 4200"
+  - build: npm run start -- --port 4200
   - editor: nvim
-  - verify:
-      layout: even-horizontal
-      panes:
-        - test: nshell emias "npx ng test @emias-clinician/smp --watch --code-coverage --browsers Chrome"
-        - lint: nshell emias
+  - test: npx ng test @emias-clinician/smp --watch --code-coverage --browsers Chrome
