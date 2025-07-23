@@ -1,0 +1,8 @@
+name: omsexpllmapp
+root: ~/Documents/projects/omsexpllmapp
+
+startup_window: editor
+
+windows:
+  - build: yarn workspace shell dev
+  - editor: nvim
