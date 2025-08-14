@@ -5,5 +5,5 @@ startup_window: editor
 
 windows:
   - build: npm start -- --port 4600
-  - editor: nvim
-  - test: npm run library:test -- --watch --browsers Chrome --code-coverage
+  - editor: nvm use default; nvim
+  - test: nvm use 16; npm run library:test -- --watch --browsers Chrome --code-coverage

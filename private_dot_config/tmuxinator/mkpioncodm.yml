@@ -10,5 +10,5 @@ windows:
       panes:
         - lib: npm run library:watch
         - app: npm run start -- --port 4500
-  - editor: nvim
-  - test: npx ng test @emias-kpi/oncodm --watch --code-coverage --browsers Chrome
+  - editor: nvm use default; nvim
+  - test: nvm use 16; npx ng test @emias-kpi/oncodm --watch --code-coverage --browsers Chrome
