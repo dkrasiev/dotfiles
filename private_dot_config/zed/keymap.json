@@ -1,0 +1,88 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+      "cmd-shift-g": [
+        "task::Spawn",
+        { "task_name": "LazyGit", "reveal_target": "center" },
+      ],
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j j": "vim::NormalBefore",
+      "j k": "vim::NormalBefore",
+    },
+  },
+  {
+    "context": "VimControl && !menu || !Editor && !Terminal",
+    "bindings": {
+      // window related commands (ctrl-w X)
+      // "ctrl-w": null,
+      // "ctrl-w left": "workspace::ActivatePaneLeft",
+      // "ctrl-w right": "workspace::ActivatePaneRight",
+      // "ctrl-w up": "workspace::ActivatePaneUp",
+      // "ctrl-w down": "workspace::ActivatePaneDown",
+      // "ctrl-w ctrl-h": "workspace::ActivatePaneLeft",
+      // "ctrl-w ctrl-l": "workspace::ActivatePaneRight",
+      // "ctrl-w ctrl-k": "workspace::ActivatePaneUp",
+      // "ctrl-w ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      // "ctrl-w shift-left": "workspace::SwapPaneLeft",
+      // "trl-w shift-right": "workspace::SwapPaneRight",
+      // "ctrl-w shift-up": "workspace::SwapPaneUp",
+      // "ctrl-w shift-down": "workspace::SwapPaneDown",
+      // "ctrl-w x": "workspace::SwapPaneAdjacent",
+      // "ctrl-w ctrl-x": "workspace::SwapPaneAdjacent",
+      // "ctrl-w shift-h": "workspace::MovePaneLeft",
+      // "ctrl-w shift-l": "workspace::MovePaneRight",
+      // "ctrl-w shift-k": "workspace::MovePaneUp",
+      // "ctrl-w shift-j": "workspace::MovePaneDown",
+      // "ctrl-w >": "vim::ResizePaneRight",
+      // "ctrl-w <": "vim::ResizePaneLeft",
+      // "ctrl-w -": "vim::ResizePaneDown",
+      // "ctrl-w +": "vim::ResizePaneUp",
+      // "ctrl-w _": "vim::MaximizePane",
+      // "ctrl-w =": "vim::ResetPaneSizes",
+      "shift-l": "pane::ActivateNextItem",
+      // "ctrl-w ctrl-g t": "pane::ActivateNextItem",
+      "shift-h": "pane::ActivatePreviousItem",
+      // "ctrl-w ctrl-g shift-t": "pane::ActivatePreviousItem",
+      // "ctrl-w w": "workspace::ActivateNextPane",
+      // "ctrl-w ctrl-w": "workspace::ActivateNextPane",
+      // "ctrl-w p": "workspace::ActivatePreviousPane",
+      // "ctrl-w ctrl-p": "workspace::ActivatePreviousPane",
+      // "ctrl-w shift-w": "workspace::ActivatePreviousPane",
+      // "ctrl-w ctrl-shift-w": "workspace::ActivatePreviousPane",
+      // "ctrl-w ctrl-v": "pane::SplitVertical",
+      // "ctrl-w v": "pane::SplitVertical",
+      // "ctrl-w shift-s": "pane::SplitHorizontal",
+      // "ctrl-w ctrl-s": "pane::SplitHorizontal",
+      // "ctrl-w s": "pane::SplitHorizontal",
+      // "ctrl-w ctrl-c": "pane::CloseActiveItem",
+      // "ctrl-w c": "pane::CloseActiveItem",
+      // "ctrl-w ctrl-q": "pane::CloseActiveItem",
+      // "ctrl-w q": "pane::CloseActiveItem",
+      // "ctrl-w ctrl-a": "pane::CloseAllItems",
+      // "ctrl-w a": "pane::CloseAllItems",
+      // "ctrl-w ctrl-o": "workspace::CloseInactiveTabsAndPanes",
+      // "ctrl-w o": "workspace::CloseInactiveTabsAndPanes",
+      // "ctrl-w ctrl-n": "workspace::NewFileSplitHorizontal",
+      // "ctrl-w n": "workspace::NewFileSplitHorizontal",
+      // "g t": "vim::GoToTab",
+      // "g shift-t": "vim::GoToPreviousTab"
+    },
+  },
+]
