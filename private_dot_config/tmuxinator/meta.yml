@@ -1,0 +1,10 @@
+name: meta-frontend
+root: ~/Documents/projects/meta-frontend
+
+startup_window: editor
+
+windows:
+  - build:
+  - editor: nvim
+  - proxy: cd proxy && docker compose up
+  - test: npx jest --watch

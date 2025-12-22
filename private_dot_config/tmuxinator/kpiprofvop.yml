@@ -8,6 +8,6 @@ windows:
   - build:
       layout: even-horizontal
       panes:
-        - library: npm run lib:watch
+        - library: npm run library:watch
         - app: npm run start -- --port 4300
   - editor: nvim

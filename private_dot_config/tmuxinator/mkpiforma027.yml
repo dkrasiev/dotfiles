@@ -1,0 +1,12 @@
+name: mkpiforma027
+root: ~/Documents/projects/mkpiforma027
+
+startup_window: editor
+
+windows:
+  - build:
+      layout: even-horizontal
+      panes:
+        - lib: npm run library:watch
+        - app: npm run start -- --port 4700
+  - editor: nvm use default; nvim
