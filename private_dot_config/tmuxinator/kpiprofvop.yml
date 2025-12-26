@@ -1,5 +1,5 @@
 name: kpiprofvop
-root: ~/Documents/projects/kpiprofvop
+root: ~/projects/kpiprofvop
 
 pre_window: cd frontend
 startup_window: editor

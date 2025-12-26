@@ -1,5 +1,5 @@
 name: mkpioncodm
-root: ~/Documents/projects/mkpioncodm
+root: ~/projects/mkpioncodm
 
 pre_window: cd frontend
 startup_window: editor

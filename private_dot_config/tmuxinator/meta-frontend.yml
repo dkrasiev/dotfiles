@@ -1,5 +1,5 @@
 name: meta-frontend
-root: ~/Documents/projects/meta-frontend
+root: ~/projects/meta-frontend
 
 startup_window: editor
 

@@ -1,5 +1,5 @@
 name: kpidoctormoe
-root: ~/Documents/projects/kpidoctormoe
+root: ~/projects/kpidoctormoe
 
 pre_window: cd frontend
 startup_window: editor
