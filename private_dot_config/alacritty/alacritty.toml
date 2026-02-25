@@ -1,0 +1,18 @@
+[general]
+import = [
+  "./rose_pine.toml"
+]
+
+[window]
+# padding = { x = 8, y = 8 }
+dynamic_padding = true
+decorations_theme_variant = "Dark"
+# opacity = 0.9
+# blur = true
+
+[font]
+normal = { family = "JetBrainsMono NF", style = "Regular" }
+bold = { family = "JetBrainsMono NF", style = "Bold" }
+italic = { family = "JetBrainsMono NF", style = "Italic" }
+size = 13.0
+
