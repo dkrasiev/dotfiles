@@ -1,8 +1,4 @@
 encryption: "age"
 age:
-  {{- if eq .chezmoi.os "darwin" }}
-  identity: "/Users/dkrasiev/key.txt"
-  {{- else }}
-  identity: "/home/dkrasiev/key.txt"
-  {{- end }}
-  recipient: "age10qysnl85zrzx5k0kfv7ae4cywx8amw3nqmcxsh8zvzlnwm4734aslyha38"
+  identity: "~/.config/chezmoi/key.txt"
+  recipient: "age1885wu6jgms6k5cdmmvmwj2lg6fxqju8lt9gf0fa6g6qgjcc8y50s3xegfl"
