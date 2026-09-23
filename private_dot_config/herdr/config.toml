@@ -1,0 +1,77 @@
+onboarding = false
+[ui]
+agent_panel_sort = "spaces"
+show_agent_labels_on_pane_borders = true
+pane_gaps = true
+
+[ui.toast]
+delivery = "terminal"
+
+[ui.sidebar.spaces]
+row_gap = 0
+rows = [
+  ["state_icon", "workspace"],
+  ["branch", "git_status"],
+]
+
+[ui.sidebar.agents]
+row_gap = 0
+rows = [
+  ["state_icon", "workspace", "tab"],
+  ["agent"],
+]
+
+[keys]
+prefix = "ctrl+f"
+# next_tab = "shift+l"
+# previous_tab = "shift+h"
+navigate_workspace_up = "k"
+navigate_workspace_down = "j"
+# focus_pane_up = "ctrl+k"
+# focus_pane_right = "ctrl+l"
+# focus_pane_down = "ctrl+j"
+# focus_pane_left = "ctrl+h"
+
+[theme]
+name = "tokyo-night"
+auto_switch = false
+
+[[keys.command]]
+key = "ctrl+h"
+type = "plugin_action"
+command = "herdr-splits.nav-left"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "plugin_action"
+command = "herdr-splits.nav-down"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "plugin_action"
+command = "herdr-splits.nav-up"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "plugin_action"
+command = "herdr-splits.nav-right"
+
+[[keys.command]]
+key = "alt+h"
+type = "plugin_action"
+command = "herdr-splits.resize-left"
+
+[[keys.command]]
+key = "alt+j"
+type = "plugin_action"
+command = "herdr-splits.resize-down"
+
+[[keys.command]]
+key = "alt+k"
+type = "plugin_action"
+command = "herdr-splits.resize-up"
+
+[[keys.command]]
+key = "alt+l"
+type = "plugin_action"
+command = "herdr-splits.resize-right"
