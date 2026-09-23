@@ -1,0 +1,8 @@
+source "$HOME/.config/zsh/antigen.zsh"
+source "$HOME/.config/zsh/antigen-plugins.zsh"
+source "$HOME/.config/zsh/dkrasiev.zsh"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/dkrasiev/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions

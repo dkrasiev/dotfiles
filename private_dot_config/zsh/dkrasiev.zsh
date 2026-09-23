@@ -34,9 +34,21 @@ reload() {
   esac
 }
 
+tn() {
+    local dir="${1:-$PWD}"
+    if [ ! -d "$dir" ]; then
+        echo "tn: not a directory: $dir" >&2
+        return 1
+    fi
+    local name
+    name=$(basename "$(cd "$dir" && pwd)" | tr '.:' '__')
+    tmux new-session -A -s "$name" -c "$dir"
+}
+
 # python bin fix
 export PATH="/Users/dkrasiev/Library/Python/3.9/bin:$PATH"
 
+export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/usr/local/go/bin"
