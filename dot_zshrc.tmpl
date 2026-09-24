@@ -1,5 +1,6 @@
+{{ if eq .chezmoi.os "linux" }}
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
+{{ end }}
 source "$HOME/.config/zsh/antigen.zsh"
 source "$HOME/.config/zsh/antigen-plugins.zsh"
 source "$HOME/.config/zsh/dkrasiev.zsh"
