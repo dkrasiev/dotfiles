@@ -1,0 +1,13 @@
+#!/bin/bash
+
+command -v tmux >/dev/null 2>&1 || { echo "tmux not found, skipping TPM"; exit 0; }
+command -v git  >/dev/null 2>&1 || { echo "git not found, skipping TPM"; exit 0; }
+
+TPM_DIR="$HOME/.config/tmux/plugins/tpm"
+
+# if [ ! -d "$TPM_DIR" ]; then
+#   git clone --depth 1 https://github.com/tmux-plugins/tpm "$TPM_DIR"
+# fi
+
+"$TPM_DIR/bin/install_plugins"
+"$TPM_DIR/bin/clean_plugins"   # optional: remove plugins no longer listed
