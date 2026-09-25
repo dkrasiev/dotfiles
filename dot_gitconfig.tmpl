@@ -1,8 +1,10 @@
 [user]
 	name = {{ .user.name }}
 	email = {{ .user.email }}
+{{ if eq .chezmoi.os "linux" }}
 [credential]
 	helper = store
+{{ end -}}
 [merge]
 	ff = false
 [pull]
