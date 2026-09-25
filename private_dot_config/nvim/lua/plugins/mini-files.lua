@@ -1,11 +1,9 @@
 return {
-  {
-    "nvim-mini/mini.files",
-    opts = {
-      mappings = {
-        go_in = "L",
-        go_in_plus = "l",
-      },
+  "nvim-mini/mini.files",
+  opts = {
+    mappings = {
+      go_in = "L",
+      go_in_plus = "l",
     },
   },
 }
